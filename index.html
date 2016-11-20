@@ -1,41 +1,61 @@
 <!DOCTYPE>
 <html>
 <head>
-<style>
+	<!-- google fonts sexy -->
+	<link href="https://fonts.googleapis.com/css?family=oswald" rel="stylesheet"> 
+	
+	<style>
 
-	.max-out {
-		width: 100%;
-		height: 100%;
-	}
+		/* sane defaults */
+		body {
+			margin: 0;
+			padding: 0;
 
-	.center-outer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+			font-family: 'oswald', sans-serif;
+			font-size: 2em;
+		}
 
-	.center-inner {
-		width: 50%;
-		height: 50%;
-	}
+		.max-out {
+			width: 100%;
+			height: 100%;
+			background-color: #f5f5e5;
+		}
 
-	.box {
-		border: 2px red solid;
-		text-align: center;
-	}
+		.center-outer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-	p.sexyfont {
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 2.5em;
-	}
+		.box {
+			border: 2px #f5f5e5 solid;
+			border-radius: 13px;
+			text-align: center;
+			background-color: white;
+			box-shadow: 5px 5px 2.5px #a9a9a9;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		.left-half, .right-half {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+
+		.left-half {
+			padding-right: 1em;
+			border-right: 1px grey  solid;
+		}
 
 	</style>
 </head>
 
 <body>
 	<div class='center-outer max-out'>
-		<div class='center-inner'>
-			<div class='box max-out'><p class='sexyfont'>pixaxe</p></div>
+		<div class='box center-inner'>
+			<div class='left-half'><p>PIXAXE</p></div>
+			<div class='right-half'><p>I like bananas</p></div>
 		</div>
 	</div>
 </body>
