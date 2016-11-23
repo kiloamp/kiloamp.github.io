@@ -14,16 +14,23 @@
 			margin: 0;
 			padding: 0;
 			font-family: 'Carrois Gothic', sans-serif;	
-			font-size: 1.2em;
+			font-size: 1em;
 			height: 100%;
 			background-color: #f8f8e8;
 		
 		}
 
+		contentheader {
+			font-family: 'Carrois Gothic', sans-serif;
+			font-size: 1.4em;
+			color: purple;
+
+		}
+
 		h2 {
 			font-family: 'Syncopate', sans-serif;
 			font-weight: bold;
-			font-size: 2em;
+			font-size: 2.5em;
 		}
 
 		.max-out {
@@ -50,8 +57,8 @@
 		}
 		
 		.left-half, .right-half {
-			padding-left: 1em;
-			padding-right: 1em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
 		}
 
 		/*.left-half {
@@ -77,11 +84,41 @@
 	<div class='center-outer max-out'>
 		<div class='box center-inner'>
 			<div class='left-half'><h2>pixaxe</h2></div>
-			<div class='right-half'><p>itscarlos@email.com</p></div>
+			<div class='left-half'><img src='qr.png' alt='qr' style='width: auto; height: 5em;'></div>
+			<div class='right-half'>
+				<p><contentheader></contactheader></p>
+				<p><u>Projects</u><p>
+				<p><u>GitHub</u></p>
+				<p><u>itscarlos@email.com</u></p>
+			</div>
 		</div>
 	</div>
 	<div class='image'>
-		<img src="footer.png" alt="footer" style="width: auto; height: 5em;">
+		<script type="text/javascript">
+		<!-- 
+		var currentdate = 0;
+		var image_number = 0;
+		function ImageArray (n) {
+			this.length = n;
+			for (var i =1; i <= n; i++) {
+				this[i] = ' '
+				}
+			}
+			image = new ImageArray(4)
+			image[0] = 'image1.png'
+			image[1] = 'image2.png'
+			image[2] = 'image3.png'
+			image[3] = 'image4.png'
+			var rand = 60/image.length
+			function randomimage() {
+				currentdate = new Date()
+				image_number = currentdate.getSeconds()
+				image_number = Math.floor(image_number/rand)
+				return(image[image_number])
+				}
+				document.write("<img src='" +  randomimage() + "' alt='footer' style='width: auto; height: 5em;'>");
+				//--> random pic select
+				</script>
 	</div>
 </body>
 </html>
