@@ -78,9 +78,8 @@
 		<div class='box center-inner'>
 			<div class='left-half'><h2>pixaxe</h2></div>
 			<div class='right-half'>
-				<p><contentheader></contactheader></p>
-				<p><u>itscarlos@email.com</u></p>
-				<p><u>GitHub/kiloamp</u></p>
+				<p><a href="mailto:itscarlos@email.com" style='color: purple'>itscarlos@email.com</a></p>
+				<p><a href="https://github.com/kiloamp" style='color: purple;'>github.com/kiloamp</a></p>
 			</div>
 		</div>
 	 	<div class='box center-inner' style='padding: 0.7em; margin-left: 2em;'>
@@ -89,30 +88,21 @@
 	</div>
 	<div class='image'>
 		<script type="text/javascript">
-		<!-- 
-		var currentdate = 0;
-		var image_number = 0;
-		function ImageArray (n) {
-			this.length = n;
-			for (var i =1; i <= n; i++) {
-				this[i] = ' '
-				}
+			var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
+
+			function randomChoice(list) {
+				var index = Math.floor(Math.random() * list.length);
+				return list[index];
 			}
-			image = new ImageArray(4)
-			image[0] = 'image1.png'
-			image[1] = 'image2.png'
-			image[2] = 'image3.png'
-			image[3] = 'image4.png'
-			var rand = 60/image.length
-			function randomimage() {
-				currentdate = new Date()
-				image_number = currentdate.getSeconds()
-				image_number = Math.floor(image_number/rand)
-				return(image[image_number])
-				}
-				document.write("<img src='" +  randomimage() + "' alt='footer' style='width: auto; height: 5em;'>");
-				//--> random pic select
-				</script>
+
+			function appendImage(src) {
+				var src = "<img src='" + src + "' style=' height: auto; width:14em;'>";
+				document.write(src);
+			}
+
+			var randomImage = randomChoice(images);
+			appendImage(randomImage);
+		</script>
 	</div>
 </body>
 </html>
