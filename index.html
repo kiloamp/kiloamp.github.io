@@ -8,7 +8,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Syncopate:700" rel="stylesheet"> 
 
 	<style>
-
 		/* sane defaults */
 		body {
 			margin: 0;
@@ -53,11 +52,6 @@
 			padding-right: 1.5em;
 		}
 
-		/*.left-half {
-			padding-right: 1em;
-			border-right: 1px gray solid;
-		}
-		*/
 		.right-half {
 			color: purple;
 			padding-left: 2em;
@@ -67,22 +61,35 @@
 			display: flex;
 			align-items: center;
 			justify-content: center; 
-			background-color: #f8f8e8
+			background-color: #f8f8e8;
 		}
 
+		.mobile.dev {
+			-moz-transform: scale(1);
+		}
+
+		@media  (max-width: 600px){
+		
+			.mobiledev {
+				background-color: black;
+				-moz-transform: scale(1.5);
+			}	
+
+		}
+				
 	</style>
 </head>
 
-<body>
+<body class='mobiledev'>
 	<div class='center-outer max-out'>
-		<div class='box center-inner'>
+		<div class='box'>
 			<div class='left-half'><h2>pixaxe</h2></div>
 			<div class='right-half'>
 				<p><a href="mailto:itscarlos@email.com" style='color: purple'>itscarlos@email.com</a></p>
 				<p><a href="https://github.com/kiloamp" style='color: purple;'>github.com/kiloamp</a></p>
 			</div>
 		</div>
-	 	<div class='box center-inner' style='padding: 0.7em; margin-left: 2em;'>
+	 	<div class='box' style='padding: 0.7em; margin-left: 2em;'>
 			<img src='qr.png' alt='qr' style='width: auto; height: 5.5em;'>
 		</div>	
 	</div>
