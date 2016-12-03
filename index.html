@@ -66,28 +66,22 @@
 
 		.mobilescreen2 {
 			display: none;
+			display: flex; 
+			align-items: center;
 			}
 
 		@media  (orientation: portrait){
 		
+			.mobilescreen {
+				display: none;
+			}	
+		
 			body {
-				font-size: 2.3em; 
+				text-size: 2em; 
 			}
 
 			h2 {
-				font-size: 3.2em;
-			}
-
-			.mobilescreen {
-				display: none;
-			}
-
-			.mobilescreen2 {
-				display: auto;
-			}
-
-			.max-out { 
-				padding-top: 2em;
+				text-size: 3em;
 			}
 		}
 				
@@ -96,9 +90,6 @@
 
 <body>
 	<div class='center-outer max-out'>
-		<div class='mobilescreen2 box' style='padding: 0.7em;'>
-			<img src='qr.png' alt='qr' style='width: auto; height: 6.5em;'>
-		</div>
 		<div class='box'>
 			<div class='left-half'><h2>pixaxe</h2></div>
 			<div class='right-half'>
