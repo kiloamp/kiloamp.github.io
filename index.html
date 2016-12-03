@@ -64,6 +64,10 @@
 			background-color: #f8f8e8;
 		}
 
+		.mobilescreen2 {
+			display: none;
+			}
+
 		@media  (orientation: portrait){
 		
 			body {
@@ -74,12 +78,17 @@
 				font-size: 3.2em;
 			}
 
-			.mobilescreen{
+			.mobilescreen {
 				display: none;
 			}
 
-			.max-out{
+			.mobilescreen2 {
+				display: auto;
+			}
+
+			.max-out { 
 				padding-top: 2em;
+			}
 		}
 				
 	</style>
@@ -87,6 +96,9 @@
 
 <body>
 	<div class='center-outer max-out'>
+		<div class='mobilescreen2 box' style='padding: 0.7em;'>
+			<img src='qr.png' alt='qr' style='width: auto; height: 6.5em;'>
+		</div>
 		<div class='box'>
 			<div class='left-half'><h2>pixaxe</h2></div>
 			<div class='right-half'>
