@@ -75,23 +75,21 @@
 				<h2>pixaxe</h2>
 				<p><a href="mailto:itscarlos@email.com">emailuser.com@email.com</a></p>
 				<p><a href="wwww.github.com/kiloamp">github.com/killoamp </a></p>
-		</div>
+				<script type="text/javascript">
+					var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
+					function randomChoice(list) {
+						var index = Math.floor(Math.random() * list.length);
+						return list[index];
+					}
+					function appendImage(src) {
+						var src = "<img src='" + src + "' style=' height: auto; width:10em; margin-top: 3em;'>";
+						document.write(src);
+					}
+					var randomImage = randomChoice(images);
+					appendImage(randomImage);
+				</script>
 	</div>
-	<div class='image'>
-		<script type="text/javascript">
-			var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
-			function randomChoice(list) {
-				var index = Math.floor(Math.random() * list.length);
-				return list[index];
-			}
-			function appendImage(src) {
-				var src = "<img src='" + src + "' style=' height: auto; width:14em;'>";
-				document.write(src);
-			}
-			var randomImage = randomChoice(images);
-			appendImage(randomImage);
-		</script>
-	</div>
+	</div>	
 	</div>
 </body>
 </html>
