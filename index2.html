@@ -17,10 +17,10 @@
 			height: 100%;
 			background-color: lightblue;
 		}
-		h2 {
+		h3 {
 			font-family: 'Comfortaa', cursive;
-			font-size: 4em;
-			color: #d35400;
+			font-size: 3.5em;
+			color: lightgreen;
 		}
 		.outside {
 			width: auto;
@@ -54,6 +54,20 @@
 			padding-right: 2em;
 		}
 
+		.button {
+    background-color: #4CAF50;  /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+		margin-bottom: 2em;
+}
+
 	</style>
 </head>
 
@@ -61,25 +75,13 @@
 	<div class='outside'>
 		<div class='box'>
 			<div class='middle'>
-				<h2>pixaxe</h2>
-				<a href="index2.html">Stuff</a></p>
-				<p><a href="mailto:itscarlos@email.com">itscarlos@email.com</a></p>
-				<p><a href="https://github.com/kiloamp">github.com/killoamp </a></p>
-				<script type="text/javascript">
-					var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
-					function randomChoice(list) {
-						var index = Math.floor(Math.random() * list.length);
-						return list[index];
-					}
-					function appendImage(src) {
-						var src = "<img src='" + src + "' style=' height: auto; width:10em; margin-top: 3em;'>";
-						document.write(src);
-					}
-					var randomImage = randomChoice(images);
-					appendImage(randomImage);
-				</script>
-	</div>
-	</div>
+				<h3>Projects</h3>
+				<p><a href="">PyATC</a></p>
+				<p><a href="">Linux Setup</a></p>
+				<p><a href="">Timetable</a></p>
+				<a href="index.html" class="button"> < Back </a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
