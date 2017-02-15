@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
-	<title>pixaxe.theweb</title>
+	<title>pixaxe | the web</title>
 	<!-- google fonts sexy -->
 
 	<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Comfortaa" rel="stylesheet">
@@ -11,76 +11,67 @@
 	<style>
 		/* sane defaults */
 		body {
-			margin: 0;
-			padding: 0;
-			font-family: 'Carrois Gothic', sans-serif;
-			font-size: 1em;
-			height: 100%;
 			background-color: lightblue;
 		}
-		h2 {
+		h1 {
 			font-family: 'Comfortaa', cursive;
 			font-size: 4em;
 			color: #d35400;
+      text-align: center;
 		}
-		.outside {
-			width: auto;
-			height: 50%;
-			background-color: lightblue;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding-left: 6em;
-			padding-right: 6em;
-			padding-top: 4em;
-			padding-bottom: 0%;
-		}
-		.box {
-			border: 0px solid black;
-			border-radius: 20px 20px 20px 20px;
-			text-align: center;
-			background-color: white;
-			box-shadow: 0px 0px 2.5px #a9a9a9;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			margin-top: 10em;
-			height: 30em;
-		}
-
-		.middle {
-			color: #777722;
-			text-align: center;
-			padding-left: 2em;
-			padding-right: 2em;
-		}
+    a {
+      font-family: 'Carrois Gothic', sans-serif;
+      font-size: 1em;
+    }
+    h2 {
+      font-family: 'Carrois Gothic', sans-serif;
+      font-size: 0.85em;
+      text-align: right;
+      margin-top: -3.5em;
+    }
+		.center {
+      display: inline-block;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 200px;
+      height: 50%;
+      margin: auto;
+    }
+    li{
+      float: left;
+      text-decoration: none;
+      padding: 3px;
+      list-style-type: none;
+      padding-bottom: 2.95em;
+      padding-top: 2em;
+    }
 
 	</style>
 </head>
 
 <body>
-	<div class='outside'>
-		<div class='box'>
-			<div class='middle'>
-				<h2>pixaxe</h2>
-				<a href="index2.html">Projects</a></p>
-				<p><a href="mailto:itscarlos@email.com">itscarlos@email.com</a></p>
-				<p><a href="https://github.com/kiloamp">github.com/killoamp </a></p>
-				<script type="text/javascript">
-					var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
-					function randomChoice(list) {
-						var index = Math.floor(Math.random() * list.length);
-						return list[index];
-					}
-					function appendImage(src) {
-						var src = "<img src='" + src + "' style=' height: auto; width:10em; margin-top: 3em;'>";
-						document.write(src);
-					}
-					var randomImage = randomChoice(images);
-					appendImage(randomImage);
-				</script>
-	</div>
-	</div>
+	<div class='center'>
+			<h1>pixaxe</h1>
+      <h2> by: Carlos Lagoa</h2>
+      <ul>
+        <li><a href="https://github.com/kiloamp">projects</a> |</li><li><a href="mailto:itscarlos@email.com">contact</a></li>
+      </ul>
+			<script type="text/javascript">
+				var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
+				function randomChoice(list) {
+					var index = Math.floor(Math.random() * list.length);
+					return list[index];
+				}
+				function appendImage(src) {
+					var src = "<img src='" + src + "' style=' height: auto; width: 9em; display: block; margin-top: 2.5em; margin-left: auto; margin-right: auto;'>";
+					document.write(src);
+				}
+				var randomImage = randomChoice(images);
+				appendImage(randomImage);
+			</script>
 	</div>
 </body>
 </html>
