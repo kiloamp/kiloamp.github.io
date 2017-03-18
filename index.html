@@ -12,39 +12,36 @@
 		/* sane defaults */
 		body {
 			background-color: lightblue;
+			font-family: 'Carrois Gothic', sans-serif;
+
 		}
 		h1 {
 			font-family: 'Comfortaa', cursive;
 			font-size: 4em;
 			color: #d35400;
-      text-align: center;
+      		text-align: center;
 		}
     a {
-      font-family: 'Carrois Gothic', sans-serif;
-      font-size: 1em;
-    }
-    h2 {
-      font-family: 'Carrois Gothic', sans-serif;
-      font-size: 0.85em;
-      text-align: right;
-      margin-top: -3.5em;
-			margin-bottom: 2.75em;
-    }
-		.center {
-      display: inline-block;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 200px;
-      height: 50%;
-      margin: auto;
-    }
-    li{
-      display: inline;
-      text-decoration: none;
-      list-style-type: none;
+	      font-family: 'Carrois Gothic', sans-serif;
+	      font-size: 1em;
+	    }
+	h2 {
+	      font-family: 'Carrois Gothic', sans-serif;
+	      font-size: 0.85em;
+	      text-align: right;
+	      margin-top: -3.5em;
+				margin-bottom: 2.75em;
+	    }
+	.center {
+	      display: inline-block;
+	      position: fixed;
+	      top: 0;
+	      bottom: 0;
+	      left: 0;
+	      right: 0;
+	      width: 200px;
+	      height: 50%;
+	      margin: auto;
     }
 
 	</style>
@@ -53,12 +50,30 @@
 <body>
 	<div class='center'>
 			<h1>pixaxe</h1>
-      <h2> by: Carlos Lagoa</h2>
-      <ul>
-        <li><a href="https://github.com/kiloamp">projects</a> | </li><li><a href="mailto:itscarlos@email.com">contact</a></li>
-      </ul>
+      <h2> featuring Barnabas</h2>
+      <form id="searchBox" method="post">
+		<input id="inBox" type="text" name="search" style=""></br>
+		</form>
+		<p id="output"></p>
 			<script type="text/javascript">
+				document.getElementById('searchBox').onsubmit = submitForm;
 				var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
+
+				function submitForm(event){
+					var data = document.forms['searchBox']["search"].value;
+					if (data.includes("contact")){
+						redirect_email();
+					}
+					return false;
+
+				}
+
+				function redirect_email()
+				{
+				    window.location.href = "mailto:itscarlos@email.com";
+				}
+
+
 				function randomChoice(list) {
 					var index = Math.floor(Math.random() * list.length);
 					return list[index];
