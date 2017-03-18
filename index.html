@@ -67,15 +67,25 @@
 		<span id="linkRef"></span>
 		<p id="output"></p>
 		<script type="text/javascript">
-			//var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png'];
-			var images = [ 'image1.png', 'image1.png', 'image1.png', 'image1.png'];
+			var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png'];
+			// for testing with my boi alexei var images = [ 'image1.png', 'image1.png', 'image1.png', 'image1.png'];
 			var input = document.getElementById("inBox");
+			var moving = false;
+			var xStep = 0;
+			var helped = false;
+			setInterval(function() {
+				if(document.getElementById("inBox").value == ""){
+					document.getElementById('inBox').style = input;
+					document.getElementById('linkRef').value = "";
+				}
+			}, 100);
 			input.focus();
 			input.select();
 
 			function submitForm(event){
 				var data = document.getElementById("inBox").value;
 				document.getElementById('inBox').style = input;
+				document.getElementById('linkRef').value = "";
 
 				if (data.includes("contact") || data.includes("mail")){
 					window.location.href = "mailto:itscarlos@email.com";
@@ -92,20 +102,60 @@
 					window.open('http://www.hoolean.com/');
 					document.getElementById('inBox').value = "";
 				}
+				else if(data.includes("elliott") || data.includes("attew")){
+					window.open('http://www.elliottattew.com/');
+					document.getElementById('inBox').value = "";
+				}
 				else if(data.includes("chick")){
 					window.open('http://chickenonaraft.com/');
 					document.getElementById('inBox').value = "";
 				}
-				else{
+				else if(data.includes("help") && helped == false){
+					makeText("Howdy! contact me or do other stuff by asking Barnabas the AI dude");
+					helped = true;
+				}
+				else if(data.includes("weather")){
+					makeText("fuck life");
+				}
+				else if(moving == 0){
 					document.getElementById('inBox').style.border = '2px solid red';
+					var xStep = 0;
+					moving = setInterval(function() {
+						if(xStep % 2 == 0){
+							moveBox(8);
+						}
+						else if(xStep % 2 == 1){
+							moveBox(-8);
+						}
+						if(xStep >= 10){
+							xStep = 0;
+							moveBox(0);
+							window.clearInterval(moving);
+							moving = 0;
+						}
+						console.log(moving);
+						xStep++;
+					}, 100);
 				}
 				return false;
 			}
 
-			function makeLink(text, url){  // Not used
-				var link = document.createElement('a');
+			function moveBox(xPos){
+				var translateStr = "translate(" + xPos + "px, 0px)";
+				document.getElementById('inBox').style.transform = translateStr;
+			}
+
+			function wait(ms){
+			   var start = new Date().getTime();
+			   var end = start;
+			   while(end < start + ms) {
+			     end = new Date().getTime();
+			  }
+			}
+
+			function makeText(text){ 
+				var link = document.createElement('p');
 				link.textContent = text;
-				link.href = url;
 				document.getElementById('linkRef').appendChild(link);
 			}
 
