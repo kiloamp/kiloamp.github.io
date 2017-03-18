@@ -13,7 +13,6 @@
 		body {
 			background-color: lightblue;
 			font-family: 'Carrois Gothic', sans-serif;
-
 		}
 		h1 {
 			font-family: 'Comfortaa', cursive;
@@ -21,70 +20,106 @@
 			color: #d35400;
       		text-align: center;
 		}
-    a {
-	      font-family: 'Carrois Gothic', sans-serif;
-	      font-size: 1em;
+    	a {
+	        font-family: 'Carrois Gothic', sans-serif;
+	        font-size: 1em;
 	    }
-	h2 {
-	      font-family: 'Carrois Gothic', sans-serif;
-	      font-size: 0.85em;
-	      text-align: right;
-	      margin-top: -3.5em;
-				margin-bottom: 2.75em;
+		h2 {
+	        font-family: 'Carrois Gothic', sans-serif;
+	        font-size: 0.85em;
+	        text-align: right;
+	        margin-top: -3.5em;
+			margin-bottom: 2.75em;
 	    }
-	.center {
-	      display: inline-block;
-	      position: fixed;
-	      top: 0;
-	      bottom: 0;
-	      left: 0;
-	      right: 0;
-	      width: 200px;
-	      height: 50%;
-	      margin: auto;
-    }
+		.center {
+			display: inline-block;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 200px;
+			height: 50%;
+			margin: auto;
+	    }
 
+		input[type=text] {
+		    width: 100%;
+		    padding: 10px 15px;
+		    box-sizing: border-box;
+		    border: 2px solid #ccc;
+		    -webkit-transition: 0.5s;
+		    transition: 0.5s;
+		    outline: none;
+		}
+
+		input[type=text]:focus {
+		    border: 2px solid #555;
+		}
 	</style>
 </head>
 
 <body>
 	<div class='center'>
-			<h1>pixaxe</h1>
-      <h2> featuring Barnabas</h2>
-      <form id="searchBox" method="post">
-		<input id="inBox" type="text" name="search" style=""></br>
-		</form>
+		<h1>pixaxe</h1>
+        <h2> featuring Barnabas</h2>
+		<input id="inBox" type="text" name="search" placeholder="Hi, how may I serve you?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
+		<span id="linkRef"></span>
 		<p id="output"></p>
-			<script type="text/javascript">
-				document.getElementById('searchBox').onsubmit = submitForm;
-				var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png' ];
+		<script type="text/javascript">
+			//var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png'];
+			var images = [ 'image1.png', 'image1.png', 'image1.png', 'image1.png'];
+			var input = document.getElementById("inBox");
+			input.focus();
+			input.select();
 
-				function submitForm(event){
-					var data = document.forms['searchBox']["search"].value;
-					if (data.includes("contact")){
-						redirect_email();
-					}
-					return false;
+			function submitForm(event){
+				var data = document.getElementById("inBox").value;
+				document.getElementById('inBox').style = input;
 
+				if (data.includes("contact") || data.includes("mail")){
+					window.location.href = "mailto:itscarlos@email.com";
 				}
-
-				function redirect_email()
-				{
-				    window.location.href = "mailto:itscarlos@email.com";
+				else if(data.includes("git") || data.includes("project")){
+					window.open('https://github.com/kiloamp');
+					document.getElementById('inBox').value = "";
 				}
-
-
-				function randomChoice(list) {
-					var index = Math.floor(Math.random() * list.length);
-					return list[index];
+				else if(data.includes("beimborn") || data.includes("bembis")){
+					window.open('http://beimborn.com/');
+					document.getElementById('inBox').value = "";
 				}
-				function appendImage(src) {
-					var src = "<img src='" + src + "' style=' height: auto; width: 9em; display: block; margin-top: 2.5em; margin-left: auto; margin-right: auto;'>";
-					document.write(src);
+				else if(data.includes("hoolean") || data.includes("harry")){
+					window.open('http://www.hoolean.com/');
+					document.getElementById('inBox').value = "";
 				}
-				var randomImage = randomChoice(images);
-				appendImage(randomImage);
-			</script>
+				else if(data.includes("chick")){
+					window.open('http://chickenonaraft.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else{
+					document.getElementById('inBox').style.border = '2px solid red';
+				}
+				return false;
+			}
+
+			function makeLink(text, url){  // Not used
+				var link = document.createElement('a');
+				link.textContent = text;
+				link.href = url;
+				document.getElementById('linkRef').appendChild(link);
+			}
+
+			function randomChoice(list) {
+				var index = Math.floor(Math.random() * list.length);
+				return list[index];
+			}
+			function appendImage(src) {
+				var src = "<img src='" + src + "' style=' height: auto; width: 9em; display: block; margin-top: 2.5em; margin-left: auto; margin-right: auto;'>";
+				document.write(src);
+			}
+			var randomImage = randomChoice(images);
+			appendImage(randomImage);
+		</script>
 	</div>
 </body>
 </html>
