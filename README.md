@@ -1,4 +1,4 @@
 # pixaxe.com
 
-A CSS styled business card to learn a bit about the interwebs. 
+A website that acts as a portal to my interests using Barnabas, the AI dude. 
 Visit it here! > [pixaxe.com](http://pixaxe.com/).
