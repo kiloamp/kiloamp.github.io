@@ -60,6 +60,8 @@
 </head>
 
 <body>
+	<link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+	<script src="https://api.motion.ai/sdk/webchat.js"></script>
 	<div class='center'>
 		<h1>pixaxe</h1>
         <h2> featuring Barnabas</h2>
@@ -170,7 +172,11 @@
 			}
 			var randomImage = randomChoice(images);
 			appendImage(randomImage);
-		</script>
+		
+  			 motionAI_Init('41798?color=62a8ea&sendBtn=SEND&inputBox=Type%20something...&token=63d84dbf31c566357d9bcbdfab0b6ab7',true,400,470,'https://api.motion.ai/sdk/botbtn.png');
+  			 /* You may also invoke motionAI_Open() to manually open the modal. */
+			</script>
+
 	</div>
 </body>
 </html>
