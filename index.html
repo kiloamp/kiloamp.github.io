@@ -192,6 +192,8 @@
 				}
 				else if(data.includes("bible") || data.includes("business") || data.includes("revision notes")){
 					window.open('the-fucking-bible.pdf');
+					document.getElementById('inBox').value = "";
+
 				}
 				else if(moving == 0){
 					document.getElementById('inBox').style.border = '2px solid red';
