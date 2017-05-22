@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE>
 <html>
 <head>
@@ -189,3 +190,196 @@
 	</div>
 </body>
 </html>
+=======
+<!DOCTYPE>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<title>pixaxe | the web</title>
+	<!-- google fonts sexy -->
+
+	<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Comfortaa" rel="stylesheet">
+	<meta name='viewport' content='width=device-width, inital-scale=0.80'>
+
+	<style>
+		/* sane defaults */
+		body {
+			background-color: lightblue;
+			font-family: 'Carrois Gothic', sans-serif;
+		}
+		h1 {
+			font-family: 'Comfortaa', cursive;
+			font-size: 4em;
+			color: #d35400;
+      		text-align: center;
+		}
+    	a {
+	        font-family: 'Carrois Gothic', sans-serif;
+	        font-size: 1em;
+	    }
+		h2 {
+	        font-family: 'Carrois Gothic', sans-serif;
+	        font-size: 0.85em;
+	        text-align: right;
+	        margin-top: -3.5em;
+			margin-bottom: 2.75em;
+	    }
+		.center {
+			display: inline-block;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 200px;
+			height: 50%;
+			margin: auto;
+	    }
+
+		input[type=text] {
+		    width: 100%;
+		    padding: 10px 15px;
+		    box-sizing: border-box;
+		    border: 2px solid #ccc;
+		    -webkit-transition: 0.5s;
+		    transition: 0.5s;
+		    outline: none;
+		}
+
+		input[type=text]:focus {
+		    border: 2px solid #555;
+		}
+	</style>
+</head>
+
+<body>
+	<link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+	<script src="https://api.motion.ai/sdk/webchat.js"></script>
+	<div class='center'>
+		<h1>pixaxe</h1>
+        <h2>just ask Barnabas!</h2>
+		<input id="inBox" type="text" name="search" placeholder="Hi! can I help?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
+		<span id="linkRef"></span>
+		<p id="output"></p>
+		<script type="text/javascript">
+			var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png'];
+			// for testing with my boi alexei var images = [ 'image1.png', 'image1.png', 'image1.png', 'image1.png'];
+			var input = document.getElementById("inBox");
+			var moving = false;
+			var xStep = 0;
+			var helped = false;
+			setInterval(function() {
+				if(document.getElementById("inBox").value == ""){
+					document.getElementById('inBox').style = input;
+					document.getElementById('linkRef').value = "";
+				}
+			}, 100);
+			input.focus();
+			input.select();
+
+			function submitForm(event){
+				var data = document.getElementById("inBox").value;
+				data = data.toLowerCase();
+				document.getElementById('inBox').style = input;
+				document.getElementById('linkRef').value = "";
+
+				if (data.includes("contact") || data.includes("mail")){
+					window.location.href = "mailto:itscarlos@email.com";
+				}
+				else if(data.includes("git") || data.includes("project")){
+					window.open('https://github.com/kiloamp');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("beimborn") || data.includes("bembis")){
+					window.open('http://beimborn.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("hoolean") || data.includes("harry")){
+					window.open('http://www.hoolean.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("elliott") || data.includes("attew")){
+					window.open('http://www.elliottattew.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("copy") || data.includes("paste")){
+					window.open('http://www.pastebin.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("games") || data.includes("snes")){
+					window.open('http://www.snesfun.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("filip") || data.includes("heiko") || data.includes("sports") || data.includes("shop")){
+					window.open('http://www.heikosport.sk/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("chick")){
+					window.open('http://chickenonaraft.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("help") && helped == false){
+					makeText("Howdy! contact me or do other stuff by asking Barnabas the AI dude");
+					helped = true;
+				}
+				else if(data.includes("bible") || data.includes("business") || data.includes("revision notes")){
+					window.open('the-fucking-bible.pdf');
+				}
+				else if(moving == 0){
+					document.getElementById('inBox').style.border = '2px solid red';
+					var xStep = 0;
+					moving = setInterval(function() {
+						if(xStep % 2 == 0){
+							moveBox(8);
+						}
+						else if(xStep % 2 == 1){
+							moveBox(-8);
+						}
+						if(xStep >= 10){
+							xStep = 0;
+							moveBox(0);
+							window.clearInterval(moving);
+							moving = 0;
+						}
+						console.log(moving);
+						xStep++;
+					}, 100);
+				}
+				return false;
+			}
+
+			function moveBox(xPos){
+				var translateStr = "translate(" + xPos + "px, 0px)";
+				document.getElementById('inBox').style.transform = translateStr;
+			}
+
+			function wait(ms){
+			   var start = new Date().getTime();
+			   var end = start;
+			   while(end < start + ms) {
+			     end = new Date().getTime();
+			  }
+			}
+
+			function makeText(text){
+				var link = document.createElement('p');
+				link.textContent = text;
+				document.getElementById('linkRef').appendChild(link);
+			}
+
+			function randomChoice(list) {
+				var index = Math.floor(Math.random() * list.length);
+				return list[index];
+			}
+			function appendImage(src) {
+				var src = "<img src='" + src + "' style=' height: auto; width: 9em; display: block; margin-top: 2.5em; margin-left: auto; margin-right: auto;'>";
+				document.write(src);
+			}
+			var randomImage = randomChoice(images);
+			appendImage(randomImage);
+			</script>
+
+	</div>
+</body>
+</html>
+>>>>>>> d1203a7879688e62cd693c5d704b2bea5f2b4310
