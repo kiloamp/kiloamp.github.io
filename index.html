@@ -65,7 +65,7 @@
 	<div class='center'>
 		<h1>pixaxe</h1>
         <h2>just ask Barnabas!</h2>
-		<input id="inBox" type="text" name="search" placeholder="Welcome, how can I help?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
+		<input id="inBox" type="text" name="search" placeholder="Hi! can I help?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
 		<span id="linkRef"></span>
 		<p id="output"></p>
 		<script type="text/javascript">
@@ -109,6 +109,18 @@
 					window.open('http://www.elliottattew.com/');
 					document.getElementById('inBox').value = "";
 				}
+				else if(data.includes("copy") || data.includes("paste")){
+					window.open('http://www.pastebin.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("games") || data.includes("snes")){
+					window.open('http://www.snesfun.com/');
+					document.getElementById('inBox').value = "";
+				}
+				else if(data.includes("filip") || data.includes("heiko") || data.includes("sports") || data.includes("shop")){
+					window.open('http://www.heikosport.sk/');
+					document.getElementById('inBox').value = "";
+				}
 				else if(data.includes("chick")){
 					window.open('http://chickenonaraft.com/');
 					document.getElementById('inBox').value = "";
@@ -117,8 +129,8 @@
 					makeText("Howdy! contact me or do other stuff by asking Barnabas the AI dude");
 					helped = true;
 				}
-				else if(data.includes("bible")){
-					window.open('the-fucking-bible.pdf', 'banana');
+				else if(data.includes("bible") || data.includes("business") || data.includes("revision notes")){
+					window.open('the-fucking-bible.pdf');
 				}
 				else if(moving == 0){
 					document.getElementById('inBox').style.border = '2px solid red';
