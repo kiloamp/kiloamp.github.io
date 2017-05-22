@@ -55,7 +55,6 @@
 
 		.popup {
     position: relative;
-    display: inline-block;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -66,36 +65,43 @@
 /* The actual popup */
 .popup .popuptext {
     visibility: hidden;
-    width: 160px;
+    width: 250px;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
+    padding: 10px 10px;
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -80px;
+    margin-left: -70%;
 }
 
 /* Popup arrow */
 .popup .popuptext::after {
     content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
+
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
 
+.meme {
+		color: gray;
+		font-size: 11px;
+		text-align: center;
+}
 /* Toggle this class - hide and show the popup */
 .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
+}
+
+.popupstyle {
+	font-size: 13px;
 }
 
 /* Add animation (fade in the popup) */
@@ -119,12 +125,10 @@
 	<div class='center'>
 		<h1>pixaxe</h1>
     <h2>just ask Barnabas!</h2>
-		<div class="popup" onclick="myFunction()"><u>help</u>
-		  <span class="popuptext" id="myPopup"><b>Things you can ask:</b><br>'can you contact carlos'<br>'show me carlos projects'<br>'play games'<br>'show me the business notes'<br>'take me to elliott's page'<br></span>
-		</div>
 		<input id="inBox" type="text" name="search" placeholder="Hi! can I help?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
 		<span id="linkRef"></span>
 		<p id="output"></p>
+
 		<script type="text/javascript">
 			var images = [ 'image1.png', 'image2.png', 'image3.png', 'image4.png'];
 			// for testing with my boi alexei var images = [ 'image1.png', 'image1.png', 'image1.png', 'image1.png'];
@@ -247,6 +251,10 @@
     	popup.classList.toggle("show");
 }
 			</script>
+
+			<div class="popup" onclick="myFunction()"><p class="meme">toggle help</p>
+			  <span class="popuptext popupstyle" id="myPopup"><b>Things you can ask:</b><br>'can you contact carlos'<br>'show me the projects carlos is working on'<br>'play games'<br>'show me the business notes'<br>'take me to elliott's page'<br>and much more!</span>
+			</div>
 
 	</div>
 </body>
