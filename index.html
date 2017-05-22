@@ -64,7 +64,7 @@
 	<script src="https://api.motion.ai/sdk/webchat.js"></script>
 	<div class='center'>
 		<h1>pixaxe</h1>
-        <h2> featuring Barnabas</h2>
+        <h2>just ask Barnabas!</h2>
 		<input id="inBox" type="text" name="search" placeholder="Welcome, how can I help?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
 		<span id="linkRef"></span>
 		<p id="output"></p>
@@ -117,8 +117,8 @@
 					makeText("Howdy! contact me or do other stuff by asking Barnabas the AI dude");
 					helped = true;
 				}
-				else if(data.includes("weather")){
-					makeText("fuck life");
+				else if(data.includes("bible")){
+					window.open('the-fucking-bible.pdf', 'banana');
 				}
 				else if(moving == 0){
 					document.getElementById('inBox').style.border = '2px solid red';
@@ -156,7 +156,7 @@
 			  }
 			}
 
-			function makeText(text){ 
+			function makeText(text){
 				var link = document.createElement('p');
 				link.textContent = text;
 				document.getElementById('linkRef').appendChild(link);
@@ -172,9 +172,6 @@
 			}
 			var randomImage = randomChoice(images);
 			appendImage(randomImage);
-		
-  			 motionAI_Init('41798?color=62a8ea&sendBtn=SEND&inputBox=Type%20something...&token=63d84dbf31c566357d9bcbdfab0b6ab7',true,400,470,'https://api.motion.ai/sdk/botbtn.png');
-  			 /* You may also invoke motionAI_Open() to manually open the modal. */
 			</script>
 
 	</div>
