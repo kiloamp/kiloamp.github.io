@@ -187,10 +187,10 @@
 					document.getElementById('inBox').value = "";
 				}
 				else if(data.includes("help") || data.includes("who") && helped == false){
-					makeText("Howdy! I'm Barnabas (Bot for Automated Response with Navigational Aids and Bearable Auto-reply System), I help Carlos by being his sorta personal assistant; ask me anything and I'll try to help!")
+					makeText("</b><br>'who are you?'<br>'can you contact carlos'<br>'show me the projects carlos is working on'<br>'play games'<br>'show me the business notes'<br>'take me to elliott's website'<br><i>and much more!<i>")
 					helped = true;
 				}
-				else if(data.includes("bible") || data.includes("business") || data.includes("revision notes")){
+				else if(data.includes("bible") || data.includes("business") || data.includes("revision") || data.includes("notes")){
 					window.open('the-fucking-bible.pdf');
 					document.getElementById('inBox').value = "";
 
@@ -255,7 +255,7 @@
 			</script>
 
 			<div class="popup" onclick="myFunction()"><p class="meme">toggle help</p>
-			  <span class="popuptext popupstyle" id="myPopup"><b>Things you can ask:</b><br>'who are you?'<br>'can you contact carlos'<br>'show me the projects carlos is working on'<br>'play games'<br>'show me the business notes'<br>'take me to elliott's website'<br><i>and much more!<i></span>
+			  <span class="popuptext popupstyle" id="myPopup"> Howdy! I'm Barnabas <u>(Bot for Automated Response with Navigational Aids and Bearable Auto-reply System)<u>, I help Carlos out by acting as his 'personal search engine'; ask me anything and I'll try to help!
 			</div>
 
 	</div>
