@@ -92,6 +92,7 @@
 		color: gray;
 		font-size: 11px;
 		text-align: center;
+		margin-top: 3em; 
 }
 /* Toggle this class - hide and show the popup */
 .popup .show {
@@ -124,7 +125,7 @@
 <body>
 	<div class='center'>
 		<h1>pixaxe</h1>
-    <h2>just ask Barnabas!</h2>
+		<h2><i>just ask Barnabas!</i></h2>
 		<input id="inBox" type="text" name="search" placeholder="Hi! can I help?" autocomplete="off" onkeydown = "if(event.keyCode == 13){submitForm();}"></br>
 		<span id="linkRef"></span>
 		<p id="output"></p>
@@ -187,13 +188,16 @@
 					document.getElementById('inBox').value = "";
 				}
 				else if(data.includes("help") && helped == false){
-					makeText("write what carlos told you to write!")
+					makeText("ask me what carlos told you to write and I shall get it for you!")
 					helped = true;
 				}
 				else if(data.includes("bible") || data.includes("business") || data.includes("revision") || data.includes("notes")){
 					window.open('the-fucking-bible.pdf');
 					document.getElementById('inBox').value = "";
-
+				}
+				else if(data.includes("where") || data.includes("lesson")){
+					window.open('Timetable V6.pdf');
+					document.getElementById('inBox').value = "";
 				}
 				else if(moving == 0){
 					document.getElementById('inBox').style.border = '2px solid red';
@@ -255,7 +259,7 @@
 			</script>
 
 			<div class="popup" onclick="myFunction()"><p class="meme">[ toggle help ]</p>
-				<span class="popuptext popupstyle" id="myPopup"> <b>Howdy!</b><br> I'm Barnabas <i>(Bot for Automated Response with Navigational Aids and Bearable Auto-reply System)</i>, I'm programmed to recognize certain queries and redirect you to them; ask me anything and I'll try to help! <br> Here is a list of stuff you can ask; <br>'can you contact carlos'<br>'show me the projects carlos is working on'<br>'play games'<br>'show me the business notes'<br>'take me to elliotts website'<br><i>...and much more!</i>
+				<span class="popuptext popupstyle" id="myPopup"> <b>Howdy!</b><br> I'm Barnabas <i>(Bot for Automated Response with Navigational Aids and Bearable Auto-reply System)</i>, I'm programmed to recognize a variety of requests and offer you the best solution I can think of; ask me anything and I'll try to help! <br> <br>Here is a list of stuff you can ask; <br>'can you contact carlos'<br>'show me the projects carlos is working on'<br>'where is carlos?'<br>'show me the business notes'<br>'lets play some games'<br>'take me to elliotts website'<br><i>...and much more!</i>
 			</div>
 
 	</div>
