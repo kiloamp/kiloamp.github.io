@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUMotorsport</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styling/main.css">
+</head>
+<body>
+    <img src="images/logo.png" alt="Logo" class="w3-display-topright w3-margin" style="width:8rem">
+    <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+        <button class="w3-bar-item w3-button" onclick="w3_close()">Close &times;</button>
+        <a href="about" class="w3-bar-item w3-button w3-xxlarge">About</a>
+        <a href="car" class="w3-bar-item w3-button w3-xxlarge">Cars</a>
+        <a href="sponsors" class="w3-bar-item w3-button w3-xxlarge">Sponsors</a>
+        <a href="contact" class="w3-bar-item w3-button w3-xxlarge">Contact</a>
+        <a href="join" class="w3-bar-item w3-pink w3-button w3-xxlarge">Join Us</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div class="w3-container">
+        <button class="w3-btn w3-pink w3-xlarge" style="animation:opac 2.5s" onclick="w3_open()">☰ more</button>
+    <!-- stuff starts here -->
+        <div class="w3-container w3-cell-middle w3-margin-top" style="text-align: center;">
+            <div class="w3-container w3-pale-green w3-quarter w3-padding-16">
+                <img src="images/monty.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Team Leader </b><br> Monty Jeacock-Fewtrell</h2>
+                    <p> Automotive Engineering MEng DIS, Part D </p>
+                </div>
+            </div>
+            <div class="w3-container w3-pale-green w3-quarter w3-padding-16">
+                <img src="images/josh.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Deputy Team Leader </b><br> Josh Harris</h2>
+                    <p> Automotive Engineering MEng DIS, Part C </p>
+                </div>
+            </div>
+            <div class="w3-container w3-pale-red w3-quarter w3-padding-16">
+                <img src="images/dom.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Suspension </b><br> Dominic Sutcliffe</h2>
+                    <p> Automotive Engineering, MEng Part D </p>
+                </div>
+            </div>
+            <div class="w3-container w3-pale-green w3-quarter w3-padding-16">
+                <img src="images/kieran.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Powertrain </b><br> Kieran Barker</h2>
+                    <p> Automotive Engineering, MEng Part D </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/dan.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Aerodynamics </b><br> Dan Smith</h2>
+                    <p> Aeronautical Engineering, MEng Part C </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/charlie.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Electronics </b><br> Charlie Manning</h2>
+                    <p> Automotive Engineering, MEng Part B </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/chris-may.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Manufacturing </b><br> Chris May</h2>
+                    <p> Automotive Engineering, MEng Part B </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/akira.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Driver Controls </b><br>Akira Tanoue</h2>
+                    <p> Automotive Engineering, MEng Part A </p><br>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/chris-hancox.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Composites </b><br> Chris Hancox </h2>
+                    <p> Automotive Engineering, MEng Part B </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/kishan.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Statics </b><br>Kishan Patel</h2>
+                    <p> Automotive Engineering, MEng Part B </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/aimee.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Head of Media </b><br>Aimée Gibbard</h2>
+                    <p> Mechanical Engineering, MEng Part B </p>
+                </div>
+            </div>
+            <div class="w3-container w3-quarter w3-padding-16">
+                <img src="images/scot.jpg" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b> Faculty Advisor </b><br> Scot Layton</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

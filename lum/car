@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>LUMotorsport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styling/main.css">
+</head>
+<body>
+    <img src="images/logo.png" alt="Logo" class="w3-display-topright w3-margin" style="width:8rem">
+    <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+        <button class="w3-bar-item w3-button" onclick="w3_close()">Close &times;</button>
+        <a href="about" class="w3-bar-item w3-button w3-xxlarge">About</a>
+        <a href="team" class="w3-bar-item w3-button w3-xxlarge">Our Team</a>
+        <a href="sponsors" class="w3-bar-item w3-button w3-xxlarge">Sponsors</a>
+        <a href="contact" class="w3-bar-item w3-button w3-xxlarge">Contact</a>
+        <a href="join" class="w3-bar-item w3-pink w3-button w3-xxlarge">Join Us</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div class="w3-container">
+        <button class="w3-btn w3-pink w3-xlarge" style="animation:opac 2.5s" onclick="w3_open()">☰ more</button>
+    <!-- stuff starts here -->
+        <div class="w3-container w3-cell-middle">
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/lfs17-tiny.jpg" alt="LFS17" style="width:70%; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <h2><b>LFS17</b></h2>
+                    <p> Custom Turbocharged Triumph engine, steel and carbon composite frame and 13" wheels</p><br>
+                    <a class="w3-btn w3-pink" href="#">+ More</a>
+                </div>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/lfs16-tiny.jpg" alt="LFS16" style="width:70%; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container">
+                    <h2><b>LFS16</b></h2>
+                    <p> Custom Turbocharged Triumph engine, steel and carbon composite frame and 13" slicks and wets</p><br>
+                    <a class="w3-btn w3-pink" href="#">+ More</a>
+                </div>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/lfs15-tiny.jpg" alt="LFS15" style="width:70%; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container">
+                    <h2><b>LFS15</b></h2>
+                    <p>Honda CBR engine, steel frame and composite floor, 13" slicks</p><br>
+                    <a class="w3-btn w3-pink" href="#">+ More</a>
+                </div>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/lfs14-tiny.jpg" alt="LFS14" style="width:70%; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container">
+                    <h2><b>LFS14</b></h2>
+                    <p>Honda CBR engine, steel frame and composite floor, 13" slicks</p><br>
+                    <a class="w3-btn w3-pink" href="#">+ More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>LUMotorsport</title>
+    <style>
+    .w3-third{
+        @media screen and (max-width:5000px)
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styling/main.css">
+</head>
+<body>
+    <img src="images/logo.png" alt="Logo" class="w3-display-topright w3-margin" style="width:8rem">
+    <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+        <button class="w3-bar-item w3-button" onclick="w3_close()">Close &times;</button>
+        <a href="team" class="w3-bar-item w3-button w3-xxlarge">Our Team</a>
+        <a href="car" class="w3-bar-item w3-button w3-xxlarge">Cars</a>
+        <a href="sponsors" class="w3-bar-item w3-button w3-xxlarge">Sponsors</a>
+        <a href="join" class="w3-bar-item w3-pink w3-button w3-xxlarge">Join Us</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div class="w3-container">
+        <button class="w3-btn w3-pink w3-xlarge" style="animation:opac 2.5s" onclick="w3_open()">☰ more</button>
+    <!-- stuff starts here -->
+    <div class="w3-padding w3-row w3-round-xlarge" style="margin-left: 25%; margin-right: 15%; margin-top: 5%; ; margin-bottom: 5%">
+            <ul class="w3-ul w3-card-4 w3-third w3-margin">
+               <li class="w3-bar">
+                 <span onclick="sendEmail();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">contact</span>
+                 <div class="w3-bar-item">
+                   <span class="w3-large"><b>Events</b></span><br>
+                   <span>Monty Jeacock</span><br>
+                   <span>monts@lum.com</span>
+                 </div>
+               </li>
+               <li class="w3-bar">
+                 <span onclick="sendEmail();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">contact</span>
+                 <div class="w3-bar-item">
+                   <span class="w3-large"><b>Sponsorships</b></span><br>
+                   <span>Josh Harris</span><br>
+                   <span>soj@lum.com</span>
+                 </div>
+               </li>
+               <li class="w3-bar">
+                 <span onclick="sendEmail();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">contact</span>
+                 <div class="w3-bar-item">
+                   <span class="w3-large"><b>Media</b></span><br>
+                   <span>Aimée Gibbard</span><br>
+                   <span>aims@lum.com</span>
+                </div>
+                </li>
+                <li class="w3-bar">
+                    <span onclick="sendEmail();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">contact</span>
+                    <div class="w3-bar-item">
+                    <span class="w3-large"><b>Other queries</b></span><br>
+                    <span>Carlos Lagoa</span><br>
+                    <span>larcos@lum.com</span>
+                </div>
+                </li>
+                </ul>
+                 <ul class="w3-ul w3-card-4 w3-third w3-margin">
+                     <li class="w3-bar">
+                         <span onclick="openMap();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right w3-pink">open in maps</span>
+                         <div class="w3-bar-item">
+                             <span class="w3-large"><b>Visit us</b></span><br>
+                             <span><p>Formula Student Team<br>Steward Miller Building<br>Holywell Way<br>Loughborough LE11 3TL</p></span>
+                         </div>
+                     </li>
+                 </ul>
+                 <ul class="w3-ul w3-card-4 w3-third w3-margin">
+                     <li class="w3-bar">
+                         <span onclick="openMap();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right w3-pink">open in facebook</span>
+                         <div class="w3-bar-item">
+                             <span class="w3-large"><b>Students</b></span><br>
+                             <span>Fresher's Page </span><br>
+                             <span>2018/2019 Season</span>
+                         </div>
+                     </li>
+                     <li class="w3-bar">
+                         <span onclick="openMap();" class="w3-bar-item w3-button w3-white w3-xlarge w3-right w3-pink">open in facebook</span>
+                         <div class="w3-bar-item">
+                             <span class="w3-large"><b>Follow us!</b></span><br>
+                                     <span>LUMotorsport Page</span><br>
+                                     <span>2018/2019 Season</span>
+                                 </div>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+         <script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+    function sendEmail()
+        {
+            window.location = "mailto:xyz@abc.com";
+        }
+    function openMap()
+        {
+            window.location = "http://maps.google.com/?q=Steward Miller Building, Holywell Way, Loughborough LE11 3TL";
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUMotorsport</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styling/main.css">
+</head>
+<body>
+    <img src="images/logo.png" alt="Logo" class="w3-display-topright w3-margin" style="width:8rem">
+    <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+        <button class="w3-bar-item w3-button" onclick="w3_close()">Close &times;</button>
+        <a href="about" class="w3-bar-item w3-button w3-xxlarge">About</a>
+        <a href="team" class="w3-bar-item w3-button w3-xxlarge">Our Team</a>
+        <a href="car" class="w3-bar-item w3-button w3-xxlarge">Cars</a>
+        <a href="contact" class="w3-bar-item w3-button w3-xxlarge">Contact</a>
+        <a href="join" class="w3-bar-item w3-pink w3-button w3-xxlarge">Join Us</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+    <div class="w3-container">
+        <button class="w3-btn w3-pink w3-xlarge" style="animation:opac 2.5s" onclick="w3_open()">☰ more</button>
+    <!-- stuff starts here -->
+        <div class="w3-container w3-padding w3-cell-middle" style="text-align: center;">
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/kevs-rental.png" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <p> Monty joined the team in his first year at Loughborough and became Head of Composites in his second year. He then spent 13 months on placement at Force India Formula One Team within the Research and Development department. </p><br>
+                </div>
+                <br>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/kevs-rental.png" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <p> Monty joined the team in his first year at Loughborough and became Head of Composites in his second year. He then spent 13 months on placement at Force India Formula One Team within the Research and Development department. </p><br>
+                </div>
+                <br>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/kevs-rental.png" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <p> Monty joined the team in his first year at Loughborough and became Head of Composites in his second year. He then spent 13 months on placement at Force India Formula One Team within the Research and Development department. </p><br>
+                </div>
+                <br>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/kevs-rental.png" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <p> Monty joined the team in his first year at Loughborough and became Head of Composites in his second year. He then spent 13 months on placement at Force India Formula One Team within the Research and Development department. </p><br>
+                </div>
+                <br>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/kevs-rental.png" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <p> Monty joined the team in his first year at Loughborough and became Head of Composites in his second year. He then spent 13 months on placement at Force India Formula One Team within the Research and Development department. </p><br>
+                </div>
+                <br>
+            </div>
+            <div class="w3-container w3-third w3-padding-16">
+                <img src="images/kevs-rental.png" alt="Team Leader" style="width:auto; max-width: 50rem; min-width: 15rem;">
+                <div class="w3-container w3-center">
+                    <p> Monty joined the team in his first year at Loughborough and became Head of Composites in his second year. He then spent 13 months on placement at Force India Formula One Team within the Research and Development department. </p><br>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
