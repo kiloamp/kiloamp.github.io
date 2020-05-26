@@ -373,3 +373,8 @@ input[type]:focus {
 img {
  max-width:100%
 }
+article{
+  background-color: #111111;
+  padding: 2rem;
+  border-radius: 20px;
+}
