@@ -103,7 +103,7 @@ body {
 }
 ::selection {
  background:var(--nc-ac-1);
- color:var(--nc-ac-tx)
+ color:var(--nc-ac-tx)s
 }
 p {
  margin-bottom:1rem
@@ -284,13 +284,13 @@ details {
 }
 summary {
  cursor:pointer;
- font-weight:700
 }
 details[open] {
- padding-bottom:.75rem
+ padding-bottom:2rem
 }
 details[open] summary {
- margin-bottom:6px
+ margin-bottom:2rem
+
 }
 details[open]>:last-child {
  margin-bottom:0
