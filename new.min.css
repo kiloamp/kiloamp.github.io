@@ -124,7 +124,6 @@ h3 {
  color:var(--nc-tx-1);
  padding-bottom:2px;
  margin-bottom:8px;
- border-bottom:1px solid var(--nc-bg-2)
 }
 h4,
 h5,
@@ -149,12 +148,14 @@ h5 {
 h6 {
  font-size:.875rem
 }
+/* removed by me
 a {
  color:var(--nc-lk-1)
 }
 a:hover {
  color:var(--nc-lk-2)
 }
+*/
 abbr:hover {
  cursor:help
 }
@@ -193,6 +194,7 @@ header > :last-child {
 }
 a button,
 button,
+a, /* added by me */
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
@@ -221,6 +223,8 @@ input[type="button"][disabled] {
 }
 a button:focus,
 a button:hover,
+a:focus, /* added by me */
+a:hover,
 button:focus,
 button:hover,
 input[type="submit"]:focus,
