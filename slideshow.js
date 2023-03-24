@@ -4,10 +4,9 @@ showSlides(slideIndex, "B");
 showSlides(slideIndex, "C");
 showSlides(slideIndex, "D");
 showSlides(slideIndex, "E");
+showSlides(slideIndex, "F");
 showSlides(slideIndex, "G");
 showSlides(slideIndex, "H");
-
-
 
 function plusSlides(n, X) {
   showSlides(slideIndex += n, X);
