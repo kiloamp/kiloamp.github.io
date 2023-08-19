@@ -1,0 +1,362 @@
+/*
+                                                             HELLO
+                      ooo$$$$$$$$$$$oo
+                   o$$$$$$$$$$$$$$$$$$$ooo                     THIS IS STEVE
+                 o$$$$$$$$$$$$$$$$$"$$$$$$$oo
+              o$$$$$$$$$$$$$$$$$$$  o $$$$$$$$$$$$$$oooo        HERE IS HIS CSS
+             o$$$$"""$$$$$$$$$$$$$oooo$$$$$$$$$$$$$"""
+           oo$""      "$$$$$$$$$$$$$$$$$$$$$$$$"
+          o$$          $$$$$$$$$$$$$$$$$$$$$$"
+         o$$            $$$$$$$$$$$$$$$$$$$$
+      o$$$$             $$$$$$$$$$$$$$$$$"
+      o$$$$$$oooooooo "                $"
+     $$$$$$$$$$$$$$"
+   $$$$$$$$$$$$$$
+   o$$$$$$$$$$$$$                         o
+ o$$$$$$$$$$$$$                           o
+ o$$$$$$$$$$$$$$                            "o
+o$$$$$$$$$$$$$$$                             "o
+o$$$$$$$$$$$$$$$$                              $
+o$$$$$$$$$$$$$$$$"                              "
+$$$$$$$$$$$$$$$$$                                $
+
+version{
+      version 1 - 6th december
+      version 2 - 24th february // quite some time
+}
+*/
+
+/* MAIN STUFF */
+body {
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+br {
+  margin: 2em;
+}
+p {
+  text-align: left;
+}
+
+figcaption {
+  font-size: 76%;
+  font-style: italic;
+}
+
+ul {
+  list-style: unset;
+}
+
+ul li {
+  padding-left: 1em; /* Add your desired left padding to create an indentation effect */
+  margin-bottom: 10px; /* Add margin between list items */
+  text-align: left;
+}
+
+/* LAYOUT COMPONENTS */
+.widestrip {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+.strip {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+.thinstrip {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+}
+.hero {
+  font-size: 150%;
+  text-align: center;
+  padding: 2em;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box {
+  margin: 1em;
+  padding: 1em;
+  width: auto;
+}
+.sideways {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.centered {
+  text-align: center;
+}
+.no-margin {
+  margin: 0 !important;
+}
+
+/* VISUAL COMPONENTS */
+.button {
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 0.8em;
+  background-color: white;
+  padding: 0.75em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.button3d {
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0.4em #999;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 0.8em;
+  background-color: white;
+  padding: 0.75em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.button3d:active {
+  box-shadow: 0 0.1em #666;
+  transform: translateY(0.3em);
+  -ms-transform: translateY(0.3em);
+  -webkit-transform: translateY(0.3em);
+}
+code {
+  background: #fcf2f2;
+  border-radius: 0.1rem;
+  color: black;
+  font-size: 85%;
+  line-height: 1.25;
+  padding: 0.1rem 0.2rem;
+  font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Courier,
+    monospace;
+  font-size: 1em;
+}
+
+/* REPONSIVE COMPONENTS */
+.responsive {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.split {
+  width: 25%;
+}
+@media (max-width: 800px) {
+  .split {
+    width: 50%;
+  }
+}
+.harder-split {
+  width: 25%;
+}
+@media (max-width: 500px) {
+  .harder-split {
+    width: 50%;
+  }
+}
+
+/* ATTRIBUTES */
+.big {
+  font-size: 150%;
+} /* for stuff that has text inside ie buttons */
+.fat {
+  margin-bottom: 3em;
+  padding-top: 6em !important;
+  padding-bottom: 8em !important;
+} /* for stuff that has stuff with text inside ie heros */
+.superfat {
+  margin-bottom: 3em;
+  padding-top: 8em !important;
+  padding-bottom: 12em !important;
+} /* for stuff that has stuff with text inside ie heros */
+.round {
+  border-radius: 1em !important;
+}
+.superround {
+  border-radius: 3em !important;
+}
+.hero.superround {
+  border-radius: 0 0 3em 3em !important;
+}
+.hero.round {
+  border-radius: 0 0 1em 1em !important;
+}
+
+/* COLORS (AND BORDERS AND STUFF) */
+.blue,
+.blue-hover:hover {
+  color: #000 !important;
+  background-color: #87ceeb !important;
+}
+.brown,
+.brown-hover:hover {
+  color: #fff !important;
+  background-color: #795548 !important;
+}
+.gray,
+.gray-hover:hover {
+  color: #fff !important;
+  background-color: #607d8b !important;
+}
+.green,
+.green-hover:hover {
+  color: #fff !important;
+  background-color: #4caf50 !important;
+}
+.orange,
+.orange-hover:hover {
+  color: #000 !important;
+  background-color: #ff9800 !important;
+}
+.purple,
+.purple-hover:hover {
+  color: #fff !important;
+  background-color: #9c27b0 !important;
+}
+.red,
+.red-hover:hover {
+  color: #fff !important;
+  background-color: red !important;
+}
+.yellow,
+.yellow-hover:hover {
+  color: #000 !important;
+  background-color: #ffef3f !important;
+}
+.white,
+.white-hover:hover {
+  color: #000 !important;
+  background-color: #fff !important;
+}
+.black,
+.black-hover:hover {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+.lightred,
+.lightred-hover:hover {
+  color: #000 !important;
+  background-color: #ffdddd !important;
+}
+.lightgreen,
+.lightgreen-hover:hover {
+  color: #000 !important;
+  background-color: #ddffdd !important;
+}
+.lightyellow,
+.lightyellow-hover:hover {
+  color: #000 !important;
+  background-color: #ffffcc !important;
+}
+.lightblue,
+.lightblue-hover:hover {
+  color: #000 !important;
+  background-color: #ddffff !important;
+}
+
+.blue-border,
+.blue-border-hover:hover {
+  border: 0.1em solid #2196f3 !important;
+}
+.brown-border,
+.brown-border-hover:hover {
+  border: 0.1em solid #795548 !important;
+}
+.gray-border,
+.gray-border-hover:hover {
+  border: 0.1em solid #607d8b !important;
+}
+.green-border,
+.green-border-hover:hover {
+  border: 0.1em solid #4caf50 !important;
+}
+.orange-border,
+.orange-border-hover:hover {
+  border: 0.1em solid #ff9800 !important;
+}
+.purple-border,
+.purple-border-hover:hover {
+  border: 0.1em solid #9c27b0 !important;
+}
+.red-border,
+.red-border-hover:hover {
+  border: 0.1em solid red !important;
+}
+.yellow-border,
+.yellow-border-hover:hover {
+  border: 0.1em solid #ffeb3b !important;
+}
+.white-border,
+.white-border-hover:hover {
+  border: 0.1em solid #fff !important;
+}
+.black-border,
+.black-border-hover:hover {
+  border: 0.1em solid #000 !important;
+}
+.lightred-border,
+.lightred-border-hover:hover {
+  border: 0.1em solid #ffe7e7 !important;
+}
+.border-pale-green,
+.hover-border-pale-green:hover {
+  border-color: #e7ffe7 !important;
+}
+.lightyellow-border,
+.lightyellow-border-hover:hover {
+  border: 0.1em solid #ffffcc !important;
+}
+.border-pale-blue,
+.hover-border-pale-blue:hover {
+  border-color: #e7ffff !important;
+}
+
+.green-gradient {
+  color: white;
+  background-image: linear-gradient(
+    141deg,
+    #009e6c 0%,
+    #00d1b2 71%,
+    #00e7eb 100%
+  );
+}
+.blue-gradient {
+  color: white;
+  background-image: linear-gradient(
+    141deg,
+    lightblue 0%,
+    #209cee 71%,
+    #3287f5 100%
+  );
+}
+.yellow-gradient {
+  color: white;
+  background-image: linear-gradient(
+    141deg,
+    #ffaf24 0%,
+    #ffdd57 71%,
+    #fffa70 100%
+  );
+}
+.red-gradient {
+  color: white;
+  background-image: linear-gradient(
+    141deg,
+    #ff0561 0%,
+    #ff3860 71%,
+    #ff5257 100%
+  );
+}
