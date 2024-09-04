@@ -1,3 +1,29 @@
+body{
+  background-color: #181818;
+  margin: 2em auto;
+  max-width: 800px;
+  text-align: justify;
+  padding: 1em;
+  font-family: "B612 Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+
+p{
+  color: white;
+}
+
+a{
+  color: lightblue
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
 .header {
   color: #000;
 }
@@ -25,11 +51,11 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 90%;
   width: auto;
   padding: 16px;
   margin-top: -28px;
-  color: black;
+  color: rgb(236, 236, 236);
   font-weight: bold;
   font-size: 20px;
   border-radius: 0 3px 3px 0;
@@ -56,11 +82,13 @@
 }
 
 .image{
-  max-width: 75%; 
+  max-width: 100%; 
   max-height: 18rem; 
   height: auto; 
   width: auto; 
   display: block; 
   margin-left: auto; 
   margin-right: auto;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }

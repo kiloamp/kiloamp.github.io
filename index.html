@@ -6,6 +6,9 @@
     <title>carlos' site</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="slideshow.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script>
       function updateTimeSince() {
           const eventDate = new Date('2024-04-03T00:00:00');
@@ -22,58 +25,57 @@
         }
   </script>
   </head>
-  <body
-    style="
-      background-color: #f0ffed;
-      font-family: sans-serif;
-      margin: 2em auto;
-      max-width: 800px;
-      text-align: justify;
-      font-size: 20px;
-      padding: 1em;
-    "
-    onload="updateTimeSince(); changeEmoji()"
-  >
+  <body onload="updateTimeSince(); changeEmoji()">
   <header style="text-align: center;">
     <span id="random_emoji" style="font-size: 5rem; display: block; margin: 0 auto;"></span>
     <p style="text-align: left; margin-top: 20px;">
-      <span style="font-size: 6rem; font-weight: bold; line-height: 1;">H</span>owdy, I'm Carlos, a 25-year-old (hopefully) friendly guy. This site is a quick intro into my last 2 decades, 1 <a target="_blank" href="https://en.wikipedia.org/wiki/Lustrum">lūstrum</a> and <span id="time_since"></span> hours. My aim is to be able to work on interesting & engaging projects in tech || aviation || engineering.
+      <span style="font-size: 4rem; font-weight: bold; line-height: 1;">H</span>owdy, Carlos here.  This site is a quick intro into the 5 <a target="_blank" href="https://en.wikipedia.org/wiki/Lustrum">lūstra</a> and <span id="time_since"></span> hours I've been around.
     </p>
   </header>
     <main style="text-align: left">
-      <div class="slideshow" style="border: 2px solid rgb(145, 196, 215); height: 30rem">
-        <div class="slide_A">
-          <img src="images/palmapic.jpg" alt="uni" class="image" />
-          <p style="padding-left: 60px; padding-right: 60px;">
-            I was born in Barcelona, but moved to Mallorca when I was around 4. The island proves to be more interesting and fun as the years go by. <br />
-          </p>
+      <div class="flex-container">
+        <div class="slideshow" style="border: 1px solid rgb(177, 177, 177); height: 30rem; max-width: 25rem; margin: 10px;">
+          <div class="slide_A">
+            <img src="images/palmapic.jpg" alt="uni" class="image" />
+            <p style="padding-left: 50px; padding-right: 50px;">
+              I was born in Barcelona, but moved to Mallorca when I was around 4. The island proves to be more interesting and fun as the years go by.
+            </p>
+          </div>
+          <div class="slide_A">
+            <img src="images/tri.gif" alt="palma" class="image" />
+            <p style="padding-left: 50px; padding-right: 50px;">
+              Along with 3 friends (🙌 Jan, Nero & Simeon),  we even did an Olympic Triathlon this early summer!
+            </p>
+          </div>
+          <a class="prev" onclick="plusSlides(-1, 'A')">❮</a>
+          <a class="next" onclick="plusSlides(1, 'A')">❯</a>
         </div>
-        <div class="slide_A">
-          <img src="images/tri.gif" alt="palma" class="image" />
-          <p style="padding-left: 60px; padding-right: 60px;">
-            Along with 3 friends (🙌 Jan, Nero & Simeon),  we even did an Olympic Triathlon this early summer!<br />
-          </p>
+        <div class="slideshow" style="border: 1px solid rgb(177, 177, 177); height: 30rem; max-width: 25rem; margin: 10px;">
+          <div class="slide_B">
+            <img src="images/minime.png" alt="uni" class="image" />
+            <p style="padding-left: 50px; padding-right: 50px;">
+              Due to family & friends; I've always been around aviation and I grew to love it.
+            </p>
+          </div>
+          <div class="slide_B">
+            <img src="images/a320.png" alt="palma" class="image" />
+            <p style="padding-left: 50px; padding-right: 50px;">
+              Around that time I moved to the UK for high school, one of the best
+              decisions I've ever taken. Not only did I improve my English and got to
+              soak up a new culture, but I went through an incredible journey of
+              self-discovery and made some great friends along the way.
+            </p>
+          </div>
+          <a class="prev" onclick="plusSlides(-1, 'B')">❮</a>
+          <a class="next" onclick="plusSlides(1, 'B')">❯</a>
         </div>
-        <a class="prev" onclick="plusSlides(-1, 'A')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'A')">❯</a>
       </div>
-      <br />
+      
 
       <p>
-        Ever since I was little I enjoyed being around anything plane-related, mostly due to family heritage. When I was 14 I also
-        started enjoying the computer-science-ey side of planes; systems and
-        avionics.
+        
       </p>
-      <div class="slideshow" style="">
-        <div class="slide_B">
-          <img src="images/a320.png" alt="uni" class="image" />
-        </div>
-        <div class="slide_B">
-          <img src="images/appbio.png" alt="palma" class="image" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 'B')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'B')">❯</a>
-      </div>
+      
       <br />
       <p>
         Around that time I moved to the UK for high school, one of the best
