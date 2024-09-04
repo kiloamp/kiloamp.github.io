@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -5,17 +6,22 @@
     <title>carlos' site</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="slideshow.css" />
+    <script>
+      function updateTimeSince() {
+          const eventDate = new Date('2024-04-03T00:00:00');
+          const currentDate = new Date();
+          const diffInMs = currentDate - eventDate;
+          const diffInHours = diffInMs / (1000 * 60 * 60);
+          document.getElementById("time_since").textContent = diffInHours.toFixed(2);
+      }
+
+      function changeEmoji() {
+            const values = ['🤠', '✈️', '💻', '🚀'];
+            const randomIndex = Math.floor(Math.random() * values.length);
+            document.getElementById("random_emoji").textContent = values[randomIndex];
+        }
+  </script>
   </head>
-  <p
-    style="
-      margin: 0;
-      padding: 5px;
-      text-align: center;
-      background-color: rgb(237, 187, 144);
-    "
-  >
-    sorry in advance if the images look weird on mobile, will fix bug soon!
-  </p>
   <body
     style="
       background-color: #f0ffed;
@@ -26,22 +32,30 @@
       font-size: 20px;
       padding: 1em;
     "
+    onload="updateTimeSince(); changeEmoji()"
   >
-    <header style="text-align: left">
-      <h1>howdy :)</h1>
-      <br /><br />
-    </header>
-    <main style="text-align: left">
-      <p>
-        I'm Carlos, a 24 year old recent grad. I was born in Barcelona, but
-        moved to Mallorca at a young age.<br />
+  <header style="text-align: left;">
+    <h1 style="text-align: center; font-size: 60px;"><span id="random_emoji"></span></h1>
+    <br />
+    <div>
+      <p class="header">
+        Howdy, Carlos here → a 25 year old (hopefully) friendly guy. This site is a quick intro into my last 2 decades, 1 <a target="_blank" href="https://en.wikipedia.org/wiki/Lustrum">lūstrum</a> and <span id="time_since"></span> hours. My aim is to be able to work on interesting & engaging projects in tech || aviation || engineering.
       </p>
-      <div class="slideshow" style="">
+    </div>
+  </header>
+    <main style="text-align: left">
+      <div class="slideshow" style="border: 2px solid rgb(145, 196, 215); height: 30rem">
         <div class="slide_A">
-          <img src="images/palma.png" alt="uni" class="image" />
+          <img src="images/palmapic.jpg" alt="uni" class="image" />
+          <p style="padding-left: 60px; padding-right: 60px;">
+            I was born in Barcelona, but moved to Mallorca when I was around 4. The island proves to be more interesting and fun as the years go by. <br />
+          </p>
         </div>
         <div class="slide_A">
-          <img src="images/palmapic.jpg" alt="palma" class="image" />
+          <img src="images/tri.gif" alt="palma" class="image" />
+          <p style="padding-left: 60px; padding-right: 60px;">
+            Along with 3 friends (🙌 Jan, Nero & Simeon),  we even did an Olympic Triathlon this early summer!<br />
+          </p>
         </div>
         <a class="prev" onclick="plusSlides(-1, 'A')">❮</a>
         <a class="next" onclick="plusSlides(1, 'A')">❯</a>
@@ -49,8 +63,7 @@
       <br />
 
       <p>
-        Family and friends close to me worked in the aviation world, so ever
-        since I was little I enjoyed being around it too. When I was 14 I also
+        Ever since I was little I enjoyed being around anything plane-related, mostly due to family heritage. When I was 14 I also
         started enjoying the computer-science-ey side of planes; systems and
         avionics.
       </p>
