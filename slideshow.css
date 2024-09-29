@@ -1,7 +1,8 @@
 body{
-  background-color: #181818;
+  background-color: white;
   margin: 2em auto;
   max-width: 800px;
+  zoom: 90%;
   text-align: justify;
   padding: 1em;
   font-family: "B612 Mono", monospace;
@@ -11,11 +12,11 @@ body{
 }
 
 p{
-  color: white;
+  color: black;
 }
 
 a{
-  color: lightblue
+  color: rgb(122, 23, 221)
 }
 
 .flex-container {
@@ -39,12 +40,12 @@ a{
 }
 
 .slideshow {
-  position: relative;
-  background-color: #1f1e1e;
-  border: 0.1rem solid transparent;
-  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 50%, #122852 100%);
+  background-color: white;
+  border: 0.15rem solid black;
   border-image-slice: 1;
+  box-shadow: 9px 9px rgb(163, 190, 190);
 }
+
 
 /* Hide the images by default */
 .mySlides {
@@ -54,25 +55,19 @@ a{
 /* Next & previous buttons */
 .prev,
 .next {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
-  position: absolute;
-  top: 90%;
-  width: auto;
   padding: 16px;
-  margin-top: -28px;
-  color: rgb(236, 236, 236);
+  margin-top: -10px;
+  color: rgb(37, 35, 35);
   font-weight: bold;
-  font-size: 20px;
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+  text-align: center;
+  font-size: xx-large
+  }
 
 
 .row:after {
@@ -89,6 +84,6 @@ a{
   display: block; 
   margin-left: auto; 
   margin-right: auto;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+  -webkit-filter:none ; /* Safari 6.0 - 9.0 */
+  filter:none ;
 }

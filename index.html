@@ -15,7 +15,7 @@
           const currentDate = new Date();
           const diffInMs = currentDate - eventDate;
           const diffInHours = diffInMs / (1000 * 60 * 60);
-          document.getElementById("time_since").textContent = diffInHours.toFixed(2);
+          document.getElementById("time_since").textContent = diffInHours.toFixed(3);
       }
 
       function changeEmoji() {
@@ -37,34 +37,32 @@
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_A">
             <img src="images/palmapic.jpg" alt="uni" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               I was born in Barcelona, but moved to Mallorca when I was around 4. The island proves to be more interesting and fun as the years go by...
             </p>
           </div>
           <div class="slide_A">
-            <img src="images/tri.gif" alt="palma" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
+            <video src="images/tri.webm" loop="true" autoplay="true" style="width: 100%;"></video>
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ...we even did an Olympic Triathlon this early summer! (kudos Jan, Nero & Simeon 🙌) <br><br> TODO: Beat them next year
             </p>
           </div>
-          <a class="prev" onclick="plusSlides(-1, 'A')">❮</a>
-          <a class="next" onclick="plusSlides(1, 'A')">❯</a>
+          <a class="next" style="display: flex; justify-content: center;" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'A'); return false;">→</a>
         </div>
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_B">
             <img src="images/minime.png" alt="uni" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               Since I was little I've been around planes; family & friends are in the bizz and as such it slowly started being a big part of my life...
             </p>
           </div>
           <div class="slide_B">
-            <img src="images/edu.gif" alt="palma" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
-              ... and it continues to be so! All shapes and sizes. Talking about Mallorca getting more interesting, here's an ultralight along it's coast.
+            <video src="images/edu.webm" loop="true" autoplay="true" style="width: 100%;"></video>
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              ... and it continues to be so! All shapes and sizes. Talking about Mallorca getting more interesting, here's an ultralight along its coast.
             </p>
           </div>
-          <a class="prev" onclick="plusSlides(-1, 'B')">❮</a>
-          <a class="next" onclick="plusSlides(1, 'B')">❯</a>
+          <a class="next" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'B'); return false;">→</a>
         </div>
       </div>
       <br> 
@@ -74,168 +72,76 @@
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_C">
             <img src="images/lfscar.png" alt="uni" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               I moved to the UK 🇬🇧, got into tech & engineering - joined my university's Formula Student team and did my <a target="_blank" href="fyp.pdf">final year thesis</a> with them...
             </p>
           </div>
           <div class="slide_C">
-            <img src="images/uk.gif" alt="palma" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
+            <video src="images/uk.webm" loop="true" autoplay="true" style="width: 100%;"></video>
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ...not everything was cars, computers (<i>& pubs</i>).There was an immense sense of tranquility, cosy cats, self-discoveries & walks with friends. 
             </p>
           </div>
-          <a class="prev" onclick="plusSlides(-1, 'C')">❮</a>
-          <a class="next" onclick="plusSlides(1, 'C')">❯</a>
+          <a class="next" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'C'); return false;">→</a>
         </div>
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_D">
-            <img src="images/minime.png" alt="uni" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
-              Since I was little I've been around planes; family & friends are in the bizz and as such it slowly started being a big part of my life...
+            <img src="images/tractor.png" alt="uni" class="image" />
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              I then moved *back* to Spain 🇪🇸, where I got my Commercial Pilot License. It was mid-covid, so a pretty lengthy & trying process...
             </p>
           </div>
           <div class="slide_D">
-            <img src="images/edu.gif" alt="palma" class="image" />
-            <p style="padding-left: 50px; padding-right: 50px;">
-              ... and it continues to be so! All shapes and sizes. Talking about Mallorca getting more interesting, here's an ultralight along it's coast.
+            <video src="images/soloxc.webm" loop="true" autoplay="true" style="width: 100%;"></video>            
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              <i>Cons:</i> Some schools suck, and testing style is done badly (I think). <i>Pros:</i> Amazing solo journeys and experiences. Talk to me if you need opinions! 
             </p>
           </div>
-          <a class="prev" onclick="plusSlides(-1, 'D')">❮</a>
-          <a class="next" onclick="plusSlides(1, 'D')">❯</a>
+          <a class="next" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'D'); return false;">→</a>
         </div>
       </div>
-      
-
-      <p>
-        
-      </p>
-      
-      <br />
-      <p>
-        Around that time I moved to the UK for high school, one of the best
-        decisions I've ever taken. Not only did I improve my English and got to
-        soak up a new culture, but I went through an incredible journey of
-        self-discovery and made some great friends along the way.
-      </p>
-      <div class="slideshow" style="">
-        >
+      <br> 
+      <p> Right now...</p>
+      <br>
+      <div class="flex-container">
+        <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
+          <div class="slide_E">
+            <img src="images/office.png" alt="uni" class="image" />
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              I'm working at <a target="_blank" href="marpledata.com">Marple</a>, a Belgian 🇧🇪 startup that works with engineers to develop & deploy test data analysis software - mostly for cars and planes...
+            </p>
+          </div>
+          <div class="slide_E">
+            <div class="image_reel" id="image_reel">
+              <img src="images/tutu.png" alt="image1" class="image" />
+              <img src="images/dranks.png" alt="image2" class="image" style="display: none;" />
+              <img src="images/nerofun.png" alt="image3" class="image" style="display: none;" />
+            </div>
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              ... the team is unbeliveably fun to be around and my role is mostly aligned to what I'd like to do in a future! (Flight Test Engineering).
+            </p>
+          </div>
+          <a class="next" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'E'); return false;">→</a>
+        </div>
+        <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
+          <div class="slide_F">
+            <img src="images/tractor.png" alt="uni" class="image" />
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              Whilst I still do some ocassional flying, I recently got my Airbus A320 type rating and I'm looking for a job in Europe 🇪🇺... 
+            </p>
+          </div>
+          <div class="slide_F">
+            <video src="images/jet.webm" loop="true" autoplay="true" style="width: 100%;"></video>            
+            <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
+              ... ^ some of the ocassional flying! Night approach into east coast Spain. Soon starting my Acrobatic Rating too, perhaps to compete?
+            </p>
+          </div>
+          <a class="next" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'F'); return false;">→</a>
+        </div>
       </div>
-      <br />
-
-      <p>
-        In high school I got into tech; particularly toying with lightweight
-        Linux distros. I did my CompSci Project on a
-        <a href="coursework.pdf" target="_blank">2D Air Traffic Control game</a>
-        (not the best project, but a cool experience). However, my fave project
-        was more low-level systems/electronics: the
-        <a href="epq.pdf" target="_blank">building blocks of an 8-bit CPU</a>.
-      </p>
-      <div class="slideshow" style="">
-        <div class="slide_D">
-          <img src="images/college.png" alt="uni" class="image" />
-        </div>
-        <div class="slide_D">
-          <img src="images/circuit.png" alt="palma" class="image" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 'D')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'D')">❯</a>
-      </div>
-      <br />
-
-      <p>
-        I then attended Loughborough University, studying Computer Science with
-        a Minor in Business Management (finishing w/ Magna Cum Laude). Most of
-        my time was spent around two societies, one being
-        <a href="https://loughborough.nightline.ac.uk/" target="_blank"
-          >Nightline,</a
-        >
-        a student to student listening service which was eye opening in terms of
-        the importance of mental health.
-      </p>
-      <div class="slideshow" style="">
-        <div class="slide_E">
-          <img src="images/lboro.png" alt="uni" class="image" />
-        </div>
-        <div class="slide_E">
-          <img src="images/lboropic.png" alt="palma" class="image" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 'E')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'E')">❯</a>
-      </div>
-      <br />
-
-      <p>
-        The other society was
-        <a href="https://lumotorsport.com/" target="_blank">LUMotorsport</a>, a
-        Formula Student uni team competing against other unis to build and race
-        a formula car. My final year project was based around the
-        <a href="fyp.pdf" target="_blank"
-          >creation of a series of cost-effective projects for the journey from
-          a combustion car to an electric one.</a
-        >
-        <i><b>*</b>may contain spelling mistakes (final draft)</i>
-      </p>
-      <div class="slideshow" style="">
-        <div class="slide_F">
-          <img src="images/lum.png" alt="lum" class="image" />
-        </div>
-        <div class="slide_F">
-          <img src="images/lfscar.jpg" alt="lfscar" class="image" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 'F')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'F')">❯</a>
-      </div>
-      <br />
-
-      <p>
-        Currently, back in Spain and doing my EASA ATPL(A). Hope to have it
-        finished by mid 2023! Not too sure what the immediate plan will be then,
-        but hoping to get my Aerobatic Rating, FAA ATP and A320 & A330/A350 type
-        rating. Meanwhile I'm flying an old Archer II and loving it!
-      </p>
-      <div class="slideshow" style="">
-        <div class="slide_G">
-          <img src="images/plane.png" alt="uni" class="image" />
-        </div>
-        <div class="slide_G">
-          <img src="images/flying.jpg" alt="palma" class="image" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 'G')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'G')">❯</a>
-      </div>
-      <br />
-
-      <p>
-        At the same time, I'm working at
-        <a href="https://marpledata.com" target="_blank">Marple</a>, an awesome
-        tech startup that provides cloud based visualization and analysis
-        software for test and R&D data for agile engineering teams over the
-        cloud.
-      </p>
-      <div class="slideshow" style="">
-        <div class="slide_H">
-          <img src="images/marple.png" alt="uni" class="image" />
-        </div>
-        <div class="slide_H">
-          <img src="images/marpleguys.png" alt="palma" class="image" />
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 'H')">❮</a>
-        <a class="next" onclick="plusSlides(1, 'H')">❯</a>
-      </div>
-      <br />
-
-      <p>
-        That's about it for now. When I do more cool stuff I'll make sure to
-        write it here! <br /><br />
-        Psst, psst - <a href="cv.pdf" target="_blank">here is my CV</a> just in
-        case. You can reach me at <b>me@carloslagoa.com</b>
-      </p>
-      <img
-        src="images/thanks.png"
-        alt="uni"
-        style="width: 50%; display: block; margin: 2em auto 2em auto"
-      />
     </main>
     <script src="slideshow.js"></script>
   </body>
 </html>
+    
+      
