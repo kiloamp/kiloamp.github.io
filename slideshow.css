@@ -1,14 +1,15 @@
 body{
-  background-color: white;
+  background-image: white; 
   margin: 2em auto;
-  max-width: 800px;
-  zoom: 90%;
+  max-width: 900px;
+  zoom: 100%;
   text-align: justify;
   padding: 1em;
   font-family: "B612 Mono", monospace;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
+  overflow-y: scroll;
 }
 
 p{
@@ -19,24 +20,19 @@ a{
   color: rgb(122, 23, 221)
 }
 
+button{
+  background-color: antiquewhite; 
+  border: none; 
+  border-radius: 10%; 
+  padding: 5px;
+  font-size: 16px;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content:center;
   align-items: center;
-}
-
-.header {
-  color: #000;
-}
-
-.header::first-letter{
-  font-weight: bold;
-  font-size: 60px;
-  font-size: 6rem;
-  line-height: 10px;
-  line-height: 1rem;
-  text-transform: uppercase;
 }
 
 .slideshow {

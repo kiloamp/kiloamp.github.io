@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>carlos' site</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="slideshow.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script>
-      function updateTimeSince() {
-          const eventDate = new Date('2024-04-03T00:00:00');
-          const currentDate = new Date();
-          const diffInMs = currentDate - eventDate;
-          const diffInHours = diffInMs / (1000 * 60 * 60);
-          document.getElementById("time_since").textContent = diffInHours.toFixed(3);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>carlos' site</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="slideshow.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <script>
+    function updateTimeSince() {
+      const eventDate = new Date('2024-04-03T00:00:00');
+      const currentDate = new Date();
+      const diffInMs = currentDate - eventDate;
+      const diffInHours = diffInMs / (1000 * 60 * 60);
+      document.getElementById("time_since").textContent = diffInHours.toFixed(3);
+    }
+    
+    function changeEmoji() {
+      const values = ['🤠', '✈️', '💻', '🚀'];
+      const randomIndex = Math.floor(Math.random() * values.length);
+      document.getElementById("random_emoji").textContent = values[randomIndex];
+    }
+    
+    function openTab(tabName) {
+      var i;
+      var x = document.getElementsByClassName("tab");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
       }
-
-      function changeEmoji() {
-            const values = ['🤠', '✈️', '💻', '🚀'];
-            const randomIndex = Math.floor(Math.random() * values.length);
-            document.getElementById("random_emoji").textContent = values[randomIndex];
-        }
+      document.getElementById(tabName).style.display = "block";  
+    }
   </script>
-  </head>
-  <body onload="updateTimeSince(); changeEmoji()">
+</head>
+<body onload="updateTimeSince(); changeEmoji()">
   <header style="text-align: center;">
-    <span id="random_emoji" style="font-size: 5rem; display: block; margin: 0 auto;"></span>
+    <span id="random_emoji" style="font-size: 3rem; display: block; margin: 0 auto;"></span>
     <p style="margin-top: 20px;">
       Howdy, Carlos here. <br> <br> This site is a quick intro into the 5 <a target="_blank" href="https://en.wikipedia.org/wiki/Lustrum">lūstra</a> and <span id="time_since"></span> hours I've been around.
     </p>
   </header>
-    <main style="text-align: left">
+  <main style="text-align: left">
+    <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+      <button onclick="openTab('about')">About me</button>
+      <button onclick="openTab('blog')">A 'blog' of sorts</button>
+      <button onclick="openTab('contact')">CV & contact me</button>
+    </div>
+    <div class="tab" id="about" style="display: none;">
       <div class="flex-container">
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_A">
-            <img src="images/palmapic.jpg" alt="uni" class="image" />
+            <img src="media/palmapic.jpg" alt="uni" class="image" />
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               I was born in Barcelona, but moved to Mallorca when I was around 4. The island proves to be more interesting and fun as the years go by...
             </p>
           </div>
           <div class="slide_A">
-            <video autoplay loop muted playsinline src="images/tri.webm" style="width: 100%;"></video>
+            <video autoplay loop muted playsinline src="media/tri.webm" style="width: 100%;"></video>
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ...we even did an Olympic Triathlon this early summer! (kudos Jan, Nero & Simeon 🙌) <br><br> TODO: Beat them next year
             </p>
@@ -51,13 +66,13 @@
         </div>
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_B">
-            <img src="images/minime.png" alt="uni" class="image" />
+            <img src="media/minime.png" alt="uni" class="image" />
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               Since I was little I've been around planes; family & friends are in the bizz and as such it slowly started being a big part of my life...
             </p>
           </div>
           <div class="slide_B">
-            <video autoplay loop muted playsinline src="images/edu.webm" style="width: 100%;"></video>
+            <video autoplay loop muted playsinline src="media/edu.webm" style="width: 100%;"></video>
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ... and it continues to be so! All shapes and sizes. Talking about Mallorca getting more interesting, here's an ultralight along its coast.
             </p>
@@ -71,13 +86,13 @@
       <div class="flex-container">
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_C">
-            <img src="images/lfscar.png" alt="uni" class="image" />
+            <img src="media/lfscar.png" alt="uni" class="image" />
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               I moved to the UK 🇬🇧, got into tech & engineering - joined my university's Formula Student team and did my <a target="_blank" href="fyp.pdf">final year thesis</a> with them...
             </p>
           </div>
           <div class="slide_C">
-            <video autoplay loop muted playsinline src="images/uk.webm" style="width: 100%;"></video>
+            <video autoplay loop muted playsinline src="media/uk.webm" style="width: 100%;"></video>
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ...not everything was cars, computers (<i>& pubs</i>).There was an immense sense of tranquility, cosy cats, self-discoveries & walks with friends. 
             </p>
@@ -86,13 +101,13 @@
         </div>
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_D">
-            <img src="images/tractor.png" alt="uni" class="image" />
+            <img src="media/tractor.png" alt="uni" class="image" />
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               I then moved *back* to Spain 🇪🇸, where I got my Commercial Pilot License. It was mid-covid, so a pretty lengthy & trying process...
             </p>
           </div>
           <div class="slide_D">
-            <video autoplay loop muted playsinline src="images/soloxc.webm" style="width: 100%;"></video>            
+            <video autoplay loop muted playsinline src="media/soloxc.webm" style="width: 100%;"></video>            
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               <i>Cons:</i> Some schools suck, and testing style is done badly (I think). <i>Pros:</i> Amazing solo journeys and experiences. Talk to me if you need opinions! 
             </p>
@@ -106,16 +121,16 @@
       <div class="flex-container">
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_E">
-            <img src="images/office.png" alt="uni" class="image" />
+            <img src="media/office.png" alt="uni" class="image" />
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               I'm working at <a target="_blank" href="marpledata.com">Marple</a>, a Belgian 🇧🇪 startup that works with engineers to develop & deploy test data analysis software - mostly for cars and planes...
             </p>
           </div>
           <div class="slide_E">
             <div class="image_reel" id="image_reel">
-              <img src="images/tutu.png" alt="image1" class="image" />
-              <img src="images/dranks.png" alt="image2" class="image" style="display: none;" />
-              <img src="images/nerofun.png" alt="image3" class="image" style="display: none;" />
+              <img src="media/tutu.png" alt="image1" class="image" />
+              <img src="media/dranks.png" alt="image2" class="image" style="display: none;" />
+              <img src="media/nerofun.png" alt="image3" class="image" style="display: none;" />
             </div>
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ... the team is unbeliveably fun to be around and my role is mostly aligned to what I'd like to do in a future! (Flight Test Engineering).
@@ -125,13 +140,13 @@
         </div>
         <div class="slideshow" style="height: 30rem; max-width: 25rem; margin: 10px;">
           <div class="slide_F">
-            <img src="images/tractor.png" alt="uni" class="image" />
+            <img src="media/tractor.png" alt="uni" class="image" />
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               Whilst I still do some ocassional flying, I recently got my Airbus A320 type rating and I'm looking for a job in Europe 🇪🇺... 
             </p>
           </div>
           <div class="slide_F">
-            <video autoplay loop muted playsinline src="images/jet.webm" style="width: 100%;"></video>            
+            <video autoplay loop muted playsinline src="media/jet.webm" style="width: 100%;"></video>            
             <p style="padding-top: 25px; padding-left: 50px; padding-right: 50px;">
               ... ^ some of the ocassional flying! Night approach into east coast Spain. Soon starting my Acrobatic Rating too, perhaps to compete?
             </p>
@@ -139,9 +154,34 @@
           <a class="next" onclick="this.innerHTML = this.innerHTML === '→' ? '←' : '→'; plusSlides(1, 'F'); return false;">→</a>
         </div>
       </div>
-    </main>
-    <script src="slideshow.js"></script>
-  </body>
+      <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+        <button style="background-color: white;" onclick="openTab('about')">Next up... →</button>
+        <button onclick="openTab('blog')">A 'blog' of sorts</button>
+        <button onclick="openTab('contact')">CV & contact me</button>
+      </div>
+    </div>
+    <div class="tab" id="blog" style="display: none;">
+      <div style="background-color: rgb(212, 253, 212); padding: 2rem; border-radius: 15px;">
+        <a target="_blank" href="blog/flipreps.html">Aircraft navigation log on a $20 receipt printer</a>
+        <p style="font-size: 14px">
+          Subject:<b>Tech/Aviation</b> &emsp; HackerNews Rank:<b>2nd</b> &emsp; Date:<b>August 2023</b>
+        </p>
+      </div>
+    </div>
+    <div class="tab" id="contact" style="display: none;">
+      <div style="background-color: white; padding: 2rem; border-radius: 15px;">
+        <h3>CV & email</h3>
+        <p>Please find <a target="_blank" href="media/LagoaCV.pdf">my CV</a> here, You can reach me at <i>me(at)carloslagoa.com</i> - <a href="mailto:me@carloslagoa.com?subject=A message to Carlos">press to email.</a></p>
+        <br>
+        <h3>Tech</h3>
+        <p>I have a pretty unsued <a target="_blank" href="https://github.com/kiloamp">Github account</a> and this is my <a target="_blank" href="https://news.ycombinator.com/user?id=carloslagoa">Hacker News profile</a> where I post stuff. I've got a weird view on tech sometimes, and I'm never the most savvy in a room - however, I'm always happy to grab a coffee and chat.</p>
+        <br>
+        <h3>Aviation</h3>
+        <p>As you might've read: I have a long list of cool things that I'm doing/want to do! I'm SE/ME CPL+IR certified, as well as Airbus A320 rated. Additionally I have experience with ground operations. Don't hesitate to reach out if I can be of service.</p>
+      </div>
+    </div>
+  </main>
+  <script src="slideshow.js"></script>
+</body>
 </html>
-    
-      
+
