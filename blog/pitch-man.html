@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pitch-man</title>
+    <link rel="stylesheet" type="text/css" href="sources/c2s2.css">
+  </head>
+
+  <body >
+    <div class="hero green-gradient">
+      <a href="../index.html" class="lightblue button3d" style="font-size: 0.9rem;">← back home</a>
+      <h3>P.E.N.I.S.<br> Pitch-Enabled Notifiation Interface System</h3>
+    </div>
+    <div class="strip">
+      <div class="centered box">
+        <p>
+          My girlfriend's parents have this water jug that they fill up every night (or midday depending on how much <a href="https://en.wikipedia.org/wiki/Pickleball" target="_blank">pickleball</a> we play). When its getting filled up, sometimes it overflows because the thing takes so long it gets forgotten behind other tasks. 
+        </p>
+        <img
+          src="sources/pitch_files/jug1.png"
+          alt="alt text"
+          style="margin-top: 30px; max-width: 600px; width: 80%;"
+        />
+        <figcaption>here he is, just sitting there, like nothing happened</figcaption>
+        <p>
+          An idea came to me: make a pitch analyzer! You leave the phone propped up and by the time it's almost full. Here's a plot of just recording the absolute pitch using my iPhone's microphone.
+        </p> 
+        <iframe src="https://app.marpledata.com/visualisation?share=Microphone-s-recording--water-ju-087XXuxJGBoPWLo6" title="Marple visualization" height="500" width="100%"></iframe>
+        <p>
+          Hmm...that's a bit strange, a lot of noise. Perhaps a moving average is in order. I'm using a tool called <a href="https://marpedata.com" target="_blank">Marple</a>, that allows for quick plots to be made with calculated values.
+        </p>
+        <iframe src="https://app.marpledata.com/visualisation?share=MA-x--z3Ryaw2pJ6RpUZjF" title="Marple visualization" height="500" width="100%"></iframe>
+        <p>
+          Okay that didn't help at all, the Moving Average is a bust - too busy when in low sampling window, and too flat when the window is upped. 
+          <br> <br>
+          What we need is a band-pass filter, or some sort of conditional statement where you can filter by the audible hearing band (800-2500Hz) at least to zoom in a bit on your interest pitch. 
+          <br> <br>
+          Find below, that band-pass filter, a moving average of it, as well as a cool cumulative sum of when the values returned from the band-pass condition.
+          <br> <br>
+          The idea here is to get a scope of what we're dealing with in terms of raw data to see if we can build some sort of a quick and easy 'model', that will allow live-analysis of the frequencies by the phone's mic and determine when the fill frequency/pattern of the jug. 
+        </p>
+        <iframe src="https://app.marpledata.com/visualisation?share=800-2500-x--QDOTAdeQVv4XlYBi" title="Marple visualization" height="500" width="100%"></iframe>
+    </div>
+    </div>
+  <div class="hero yellow-gradient">
+      <h3 style="font-size: 16px">
+          Thank you so much for reading! <i>Feedback? Ideas? Hate? Coffee? </i>
+      </h3>
+      <h3 style="font-size: 16px">
+          me(at)carloslagoa.com
+      </h3>
+      <a href="../index.html" class="lightblue button3d" style="font-size: 0.9rem;">← back home</a>
+  </div>
+  </body>
+</html>
