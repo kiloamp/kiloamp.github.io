@@ -1,85 +1,342 @@
-body{
-  background-image: white; 
+body {
+  background: white;
+
   margin: 2em auto;
   max-width: 900px;
-  zoom: 100%;
-  text-align: justify;
+
   padding: 1em;
-  font-family: "B612 Mono", monospace;
+
+  text-align: justify;
+
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
+
   overflow-y: scroll;
 }
 
-p{
+
+/* -----------------------
+   BASIC TEXT
+----------------------- */
+
+p {
   color: black;
 }
 
-a{
-  color: rgb(122, 23, 221)
+a {
+  color: rgb(122, 23, 221);
 }
 
-button{
-  background-color: antiquewhite; 
-  border: none; 
-  border-radius: 10%; 
-  padding: 5px;
+button {
+  background-color: antiquewhite;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 6px 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+
+  cursor: pointer;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:center;
-  align-items: center;
+
+/* -----------------------
+   TAB / PAGE SYSTEM
+----------------------- */
+
+.tab {
+  display: none;
 }
+
+/* About starts visible */
+#about {
+  display: block;
+}
+
+
+/* -----------------------
+   HORIZONTAL ABOUT AREA
+----------------------- */
+
+/*
+  This is the important part.
+
+  Every card sits on ONE horizontal line.
+  The container scrolls left/right instead
+  of putting cards underneath each other.
+*/
+
+.about-track {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  gap: 30px;
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  scrollbar-width: none;
+}
+
+.about-track::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* -----------------------
+   INDIVIDUAL CARDS
+----------------------- */
 
 .slideshow {
   background-color: white;
+
   border: 0.15rem solid black;
   border-image-slice: 1;
+
   box-shadow: 9px 9px rgb(163, 190, 190);
+
+  /*
+    Prevent Flexbox from shrinking the cards.
+  */
+  flex: 0 0 25rem;
+
+  width: 25rem;
+  max-width: 25rem;
+
+  height: 30rem;
+
+  margin: 10px;
+
+  scroll-snap-align: center;
 }
 
 
-/* Hide the images by default */
+/* -----------------------
+   EXISTING SLIDESHOW
+----------------------- */
+
+/*
+  Leave this for compatibility with
+  your slideshow.js.
+*/
+
 .mySlides {
   display: none;
 }
 
+
 /* Next & previous buttons */
+
 .prev,
 .next {
   display: flex;
+
   justify-content: center;
+  align-items: center;
+
   cursor: pointer;
+
   padding: 16px;
+
   margin-top: -10px;
+
   color: rgb(37, 35, 35);
+
   font-weight: bold;
+
   border-radius: 0 3px 3px 0;
+
   user-select: none;
   -webkit-user-select: none;
+
   text-align: center;
-  font-size: xx-large
-  }
 
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+  font-size: xx-large;
 }
 
-.image{
-  max-width: 100%; 
-  max-height: 18rem; 
-  height: auto; 
-  width: auto; 
-  display: block; 
-  margin-left: auto; 
+
+/* -----------------------
+   IMAGES
+----------------------- */
+
+.image {
+  max-width: 100%;
+  max-height: 18rem;
+
+  height: auto;
+  width: auto;
+
+  display: block;
+
+  margin-left: auto;
   margin-right: auto;
-  -webkit-filter:none ; /* Safari 6.0 - 9.0 */
-  filter:none ;
+
+  -webkit-filter: none;
+  filter: none;
+}
+
+
+/*
+  Make videos obey the same dimensions
+  as images instead of stretching the card.
+*/
+
+.slideshow video {
+  max-width: 100%;
+  max-height: 18rem;
+
+  height: auto;
+  width: auto;
+
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* -----------------------
+   HORIZONTAL SECTION LABELS
+----------------------- */
+
+/*
+  These replace the old vertical text:
+
+  "... slightly later in life..."
+  "... and right now..."
+
+  They now appear BETWEEN the cards while
+  scrolling horizontally.
+*/
+
+.story-divider {
+  flex: 0 0 180px;
+
+  text-align: center;
+
+  padding: 20px;
+
+  scroll-snap-align: center;
+}
+
+
+/* -----------------------
+   ABOUT SCROLL BUTTONS
+----------------------- */
+
+.about-controls {
+  text-align: center;
+
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.about-controls button {
+  min-width: 50px;
+
+  margin-left: 5px;
+  margin-right: 5px;
+
+  font-size: 20px;
+}
+
+
+/* -----------------------
+   BLOG
+----------------------- */
+
+.blog-entry {
+  background-color: rgb(212, 253, 212);
+
+  margin: 2rem;
+  padding: 2rem;
+
+  border-radius: 15px;
+}
+
+
+/* -----------------------
+   CONTACT
+----------------------- */
+
+.contact-box {
+  background-color: white;
+
+  padding: 2rem;
+
+  border-radius: 15px;
+}
+
+
+/* -----------------------
+   BOTTOM NAVIGATION
+----------------------- */
+
+.bottom-nav {
+  text-align: center;
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bottom-nav button {
+  margin: 5px;
+}
+
+
+/* -----------------------
+   MOBILE
+----------------------- */
+
+@media (max-width: 600px) {
+
+  body {
+    margin: 1em auto;
+    padding: 0.75em;
+  }
+
+  /*
+    Cards stay horizontal on mobile,
+    but fit inside the viewport.
+  */
+
+  .slideshow {
+    flex: 0 0 calc(100vw - 3rem);
+
+    width: calc(100vw - 3rem);
+    max-width: calc(100vw - 3rem);
+
+    height: 30rem;
+
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .about-track {
+    gap: 20px;
+  }
+
+  .story-divider {
+    flex: 0 0 120px;
+  }
+
+  .blog-entry {
+    margin: 1rem 0;
+  }
 }
