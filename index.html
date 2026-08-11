@@ -3,15 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>carlos' site</title>
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="slideshow.css" />
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="favicon.ico"
+  />
+
+  <link
+    rel="stylesheet"
+    href="slideshow.css"
+  />
+
+  <style>
+    /* override the old mono font */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /*
+      About is visible by default.
+      Blog and Contact are hidden.
+    */
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+
+    /*
+      Keep every slideshow box the same size.
+      This matches your original layout.
+    */
+    .slideshow {
+      height: 30rem;
+      width: 25rem;
+      max-width: 25rem;
+
+      margin: 10px;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    /*
+      This is the horizontal sliding area.
+
+      Each slideshow has two "pages".
+      The track is therefore 200% wide.
+    */
+    .slide-track {
+      display: flex;
+
+      width: 200%;
+      height: calc(100% - 65px);
+
+      transform: translateX(0);
+      transition: transform 0.4s ease;
+    }
+
+
+    /*
+      Move exactly one card-width left.
+    */
+    .slide-track.second-page {
+      transform: translateX(-50%);
+    }
+
+
+    /*
+      Each page takes exactly half of the
+      200%-wide track = one slideshow box.
+    */
+    .slide-page {
+      flex: 0 0 50%;
+      width: 50%;
+
+      overflow: hidden;
+    }
+
+
+    /*
+      Preserve your old image sizing.
+    */
+    .slide-page .image {
+      max-width: 100%;
+      max-height: 18rem;
+
+      width: auto;
+      height: auto;
+
+      display: block;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    /*
+      Videos behave exactly like images.
+    */
+    .slide-page video {
+      max-width: 100%;
+      max-height: 18rem;
+
+      width: auto;
+      height: auto;
+
+      display: block;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    /*
+      Text stays inside the box instead
+      of changing its dimensions.
+    */
+    .slide-text {
+      padding-top: 25px;
+      padding-left: 50px;
+      padding-right: 50px;
+
+      margin-top: 0;
+    }
+
+
+    /*
+      Arrow lives at the bottom of
+      the slideshow box.
+    */
+    .next {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 60px;
+
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: white;
+
+      border: none;
+      border-radius: 0;
+
+      cursor: pointer;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: xx-large;
+      font-weight: bold;
+
+      color: rgb(37, 35, 35);
+    }
+
+
+    /*
+      Bottom page navigation.
+    */
+    .bottom-nav {
+      margin-top: 4rem;
+      margin-bottom: 3rem;
+
+      text-align: center;
+    }
+
+    .bottom-nav button {
+      margin: 5px;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /*
+      Blog/contact navigation back to About.
+    */
+    .secondary-nav {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+
+      text-align: center;
+    }
+
+
+    /*
+      Original blog styling, moved out
+      of inline HTML to make things cleaner.
+    */
+    .blog-entry {
+      background-color: rgb(212, 253, 212);
+
+      margin: 2rem;
+      padding: 2rem;
+
+      border-radius: 15px;
+    }
+
+
+    .contact-box {
+      background-color: white;
+
+      padding: 2rem;
+
+      border-radius: 15px;
+    }
+
+
+    /*
+      On narrow phones stack the cards.
+      Their internal horizontal slide still works.
+    */
+    @media (max-width: 850px) {
+      .slideshow {
+        width: min(25rem, calc(100vw - 4rem));
+      }
+    }
+  </style>
+
 
   <script>
     function updateTimeSince() {
       const eventDate = new Date('2024-04-03T00:00:00');
       const currentDate = new Date();
+
       const diffInMs = currentDate - eventDate;
       const diffInHours = diffInMs / (1000 * 60 * 60);
 
@@ -19,81 +246,145 @@
         diffInHours.toFixed(3);
     }
 
+
     function changeEmoji() {
       const values = ['🤠', '✈️', '💻', '🚀'];
-      const randomIndex = Math.floor(Math.random() * values.length);
+
+      const randomIndex =
+        Math.floor(Math.random() * values.length);
 
       document.getElementById("random_emoji").textContent =
         values[randomIndex];
     }
 
+
+    /*
+      About / Blog / Contact switching.
+    */
     function openTab(tabName) {
-      const tabs = document.getElementsByClassName("tab");
+      const tabs =
+        document.getElementsByClassName("tab");
 
       for (let i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove("active-tab");
+        tabs[i].classList.remove("active");
       }
 
-      document.getElementById(tabName).classList.add("active-tab");
+      document
+        .getElementById(tabName)
+        .classList.add("active");
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo(0, 0);
     }
+
+
+    /*
+      Horizontal card sliding.
+    */
+    function toggleSlide(name, button) {
+      const track =
+        document.getElementById("track-" + name);
+
+      const showingSecond =
+        track.classList.toggle("second-page");
+
+      button.textContent =
+        showingSecond ? "←" : "→";
+    }
+
+
+    window.onload = function () {
+      updateTimeSince();
+      changeEmoji();
+    };
   </script>
 </head>
 
-<body onload="updateTimeSince(); changeEmoji(); initSlides();">
 
-  <header>
-    <span id="random_emoji"></span>
+<body>
 
-    <p>
+  <header style="text-align: center;">
+
+    <span
+      id="random_emoji"
+      style="
+        font-size: 3rem;
+        display: block;
+        margin: 0 auto;
+      "
+    ></span>
+
+
+    <p style="margin-top: 20px;">
       Howdy, Carlos here.
+
       <br><br>
 
       This site is a quick intro into the 5
+
       <a
         target="_blank"
         href="https://en.wikipedia.org/wiki/Lustrum"
-      >lūstra</a>
+      >
+        lūstra
+      </a>
+
       and
+
       <span id="time_since"></span>
+
       hours I've been around.
     </p>
+
   </header>
 
 
-  <main>
 
-    <!-- ABOUT -->
-    <!-- visible by default -->
-    <div class="tab active-tab" id="about">
+  <main style="text-align: left;">
+
+
+    <!-- ========================= -->
+    <!-- ABOUT — DEFAULT PAGE      -->
+    <!-- ========================= -->
+
+    <div
+      class="tab active"
+      id="about"
+    >
+
+
+      <!-- ROW 1 -->
 
       <div class="flex-container">
 
+
         <!-- A -->
+
         <div class="slideshow">
 
-          <div class="slide-track">
+          <div
+            class="slide-track"
+            id="track-A"
+          >
 
-            <div class="slide slide_A">
+            <div class="slide-page">
+
               <img
                 src="media/palmapic.jpg"
                 alt="Mallorca"
                 class="image"
               />
 
-              <p>
+              <p class="slide-text">
                 I was born in Barcelona, but moved to Mallorca
-                when I was around 4. The island proves to be more
-                interesting and fun as the years go by...
+                when I was around 4. The island proves to be
+                more interesting and fun as the years go by...
               </p>
+
             </div>
 
 
-            <div class="slide slide_A">
+            <div class="slide-page">
+
               <video
                 autoplay
                 loop
@@ -102,20 +393,23 @@
                 src="media/tri.webm"
               ></video>
 
-              <p>
+              <p class="slide-text">
                 ...we even did an Olympic Triathlon this early
                 summer! (kudos Jan, Nero & Simeon 🙌)
+
                 <br><br>
+
                 TODO: Beat them next year
               </p>
+
             </div>
 
           </div>
 
+
           <button
             class="next"
-            onclick="plusSlides(1, 'A')"
-            aria-label="Next slide"
+            onclick="toggleSlide('A', this)"
           >
             →
           </button>
@@ -123,27 +417,35 @@
         </div>
 
 
+
         <!-- B -->
+
         <div class="slideshow">
 
-          <div class="slide-track">
+          <div
+            class="slide-track"
+            id="track-B"
+          >
 
-            <div class="slide slide_B">
+            <div class="slide-page">
+
               <img
                 src="media/minime.png"
-                alt="Young Carlos around planes"
+                alt="Young Carlos"
                 class="image"
               />
 
-              <p>
+              <p class="slide-text">
                 Since I was little I've been around planes;
-                family & friends are in the bizz and as such it
-                slowly started being a big part of my life...
+                family & friends are in the bizz and as such
+                it slowly started being a big part of my life...
               </p>
+
             </div>
 
 
-            <div class="slide slide_B">
+            <div class="slide-page">
+
               <video
                 autoplay
                 loop
@@ -152,19 +454,21 @@
                 src="media/edu.webm"
               ></video>
 
-              <p>
-                ...and it continues to be so! All shapes and sizes.
-                Talking about Mallorca getting more interesting,
-                here's an ultralight along its coast.
+              <p class="slide-text">
+                ...and it continues to be so! All shapes and
+                sizes. Talking about Mallorca getting more
+                interesting, here's an ultralight along its
+                coast.
               </p>
+
             </div>
 
           </div>
 
+
           <button
             class="next"
-            onclick="plusSlides(1, 'B')"
-            aria-label="Next slide"
+            onclick="toggleSlide('B', this)"
           >
             →
           </button>
@@ -174,38 +478,59 @@
       </div>
 
 
-      <p class="section-divider">
+
+      <br>
+
+      <p style="text-align: center;">
         ... slightly later in life...
       </p>
 
+      <br>
+
+
+
+      <!-- ROW 2 -->
 
       <div class="flex-container">
 
+
         <!-- C -->
+
         <div class="slideshow">
 
-          <div class="slide-track">
+          <div
+            class="slide-track"
+            id="track-C"
+          >
 
-            <div class="slide slide_C">
+            <div class="slide-page">
+
               <img
                 src="media/lfscar.png"
-                alt="Formula Student car"
+                alt="Formula Student"
                 class="image"
               />
 
-              <p>
-                I moved to the UK 🇬🇧, got into tech & engineering -
-                joined my university's Formula Student team and did
-                my
-                <a target="_blank" href="fyp.pdf">
+              <p class="slide-text">
+                I moved to the UK 🇬🇧, got into tech &
+                engineering - joined my university's Formula
+                Student team and did my
+
+                <a
+                  target="_blank"
+                  href="fyp.pdf"
+                >
                   final year thesis
                 </a>
+
                 with them...
               </p>
+
             </div>
 
 
-            <div class="slide slide_C">
+            <div class="slide-page">
+
               <video
                 autoplay
                 loop
@@ -214,20 +539,21 @@
                 src="media/uk.webm"
               ></video>
 
-              <p>
+              <p class="slide-text">
                 ...not everything was cars, computers
-                (<i>& pubs</i>). There was an immense sense of
-                tranquility, cosy cats, self-discoveries & walks
-                with friends.
+                (<i>& pubs</i>). There was an immense sense
+                of tranquility, cosy cats, self-discoveries
+                & walks with friends.
               </p>
+
             </div>
 
           </div>
 
+
           <button
             class="next"
-            onclick="plusSlides(1, 'C')"
-            aria-label="Next slide"
+            onclick="toggleSlide('C', this)"
           >
             →
           </button>
@@ -235,27 +561,36 @@
         </div>
 
 
+
         <!-- D -->
+
         <div class="slideshow">
 
-          <div class="slide-track">
+          <div
+            class="slide-track"
+            id="track-D"
+          >
 
-            <div class="slide slide_D">
+            <div class="slide-page">
+
               <img
                 src="media/tractor.png"
-                alt="Flying in Spain"
+                alt="Flying"
                 class="image"
               />
 
-              <p>
-                I then moved <i>back</i> to Spain 🇪🇸, where I got
-                my Commercial Pilot License. It was mid-COVID,
-                so a pretty lengthy & trying process...
+              <p class="slide-text">
+                I then moved <i>back</i> to Spain 🇪🇸,
+                where I got my Commercial Pilot License.
+                It was mid-covid, so a pretty lengthy &
+                trying process...
               </p>
+
             </div>
 
 
-            <div class="slide slide_D">
+            <div class="slide-page">
+
               <video
                 autoplay
                 loop
@@ -264,20 +599,24 @@
                 src="media/soloxc.webm"
               ></video>
 
-              <p>
-                <i>Cons:</i> Some schools suck, and testing style
-                is done badly (I think).
-                <i>Pros:</i> Amazing solo journeys and experiences.
+              <p class="slide-text">
+                <i>Cons:</i>
+                Some schools suck, and testing style is done
+                badly (I think).
+
+                <i>Pros:</i>
+                Amazing solo journeys and experiences.
                 Talk to me if you need opinions!
               </p>
+
             </div>
 
           </div>
 
+
           <button
             class="next"
-            onclick="plusSlides(1, 'D')"
-            aria-label="Next slide"
+            onclick="toggleSlide('D', this)"
           >
             →
           </button>
@@ -287,78 +626,89 @@
       </div>
 
 
-      <p class="section-divider">
+
+      <br>
+
+      <p style="text-align: center;">
         ... and right now...
       </p>
 
+      <br>
+
+
+
+      <!-- ROW 3 -->
 
       <div class="flex-container">
 
+
         <!-- E -->
+
         <div class="slideshow">
 
-          <div class="slide-track">
+          <div
+            class="slide-track"
+            id="track-E"
+          >
 
-            <div class="slide slide_E">
+            <div class="slide-page">
+
               <img
                 src="media/office.png"
-                alt="Office"
+                alt="Marple"
                 class="image"
               />
 
-              <p>
+              <p class="slide-text">
                 I'm working at
+
                 <a
                   target="_blank"
                   href="https://marpledata.com"
                 >
                   Marple
                 </a>,
-                a Belgian 🇧🇪 startup that works with engineers
-                to develop & deploy test data analysis software -
-                mostly for cars and planes...
+
+                a Belgian 🇧🇪 startup that works with
+                engineers to develop & deploy test data
+                analysis software - mostly for cars and
+                planes...
               </p>
+
             </div>
 
 
-            <div class="slide slide_E">
+            <div class="slide-page">
 
-              <div class="image_reel" id="image_reel">
+              <div
+                class="image_reel"
+                id="image_reel"
+              >
+
                 <img
                   src="media/tutu.png"
-                  alt="Team photo"
+                  alt="Team"
                   class="image"
                 />
 
-                <img
-                  src="media/dranks.png"
-                  alt="Team photo"
-                  class="image"
-                  style="display: none;"
-                />
-
-                <img
-                  src="media/nerofun.png"
-                  alt="Team photo"
-                  class="image"
-                  style="display: none;"
-                />
               </div>
 
-              <p>
-                ...the team is unbelievably fun to be around and
-                my role is mostly aligned to what I'd like to do
-                in the future! (Flight Test Engineering).
+
+              <p class="slide-text">
+                ...the team is unbelievably fun to be around
+                and my role is mostly aligned to what I'd
+                like to do in a future!
+                (Flight Test Engineering).
               </p>
 
             </div>
 
           </div>
 
+
           <button
             class="next"
-            onclick="plusSlides(1, 'E')"
-            aria-label="Next slide"
+            onclick="toggleSlide('E', this)"
           >
             →
           </button>
@@ -366,27 +716,35 @@
         </div>
 
 
+
         <!-- F -->
+
         <div class="slideshow">
 
-          <div class="slide-track">
+          <div
+            class="slide-track"
+            id="track-F"
+          >
 
-            <div class="slide slide_F">
+            <div class="slide-page">
+
               <img
                 src="media/tractor.png"
                 alt="Flying"
                 class="image"
               />
 
-              <p>
-                Whilst I still do some occasional flying, I
-                recently got my Airbus A320 type rating and I'm
-                looking for a job in Europe 🇪🇺...
+              <p class="slide-text">
+                Whilst I still do some occasional flying,
+                I recently got my Airbus A320 type rating
+                and I'm looking for a job in Europe 🇪🇺...
               </p>
+
             </div>
 
 
-            <div class="slide slide_F">
+            <div class="slide-page">
+
               <video
                 autoplay
                 loop
@@ -395,19 +753,21 @@
                 src="media/jet.webm"
               ></video>
 
-              <p>
-                ... ^ some of the occasional flying! Night
-                approach into east coast Spain. Soon starting my
-                Aerobatic Rating too, perhaps to compete?
+              <p class="slide-text">
+                ... ^ some of the occasional flying!
+                Night approach into east coast Spain.
+                Soon starting my Aerobatic Rating too,
+                perhaps to compete?
               </p>
+
             </div>
 
           </div>
 
+
           <button
             class="next"
-            onclick="plusSlides(1, 'F')"
-            aria-label="Next slide"
+            onclick="toggleSlide('F', this)"
           >
             →
           </button>
@@ -419,83 +779,150 @@
     </div>
 
 
-    <!-- BLOG -->
-    <div class="tab" id="blog">
 
-      <div class="blog-post">
+    <!-- ========================= -->
+    <!-- BLOG                      -->
+    <!-- ========================= -->
+
+    <div
+      class="tab"
+      id="blog"
+    >
+
+      <div class="blog-entry">
+
         <a href="blog/flipreps.html">
           Aircraft navigation log on a $20 receipt printer
         </a>
 
-        <p class="metadata">
-          Subject: <b>Tech/Aviation</b>
+        <p style="font-size: 14px;">
+          Subject:
+          <b>Tech/Aviation</b>
+
           &emsp;
-          HackerNews Rank: <b>2nd</b>
+
+          HackerNews Rank:
+          <b>2nd</b>
+
           &emsp;
-          Date: <b>August 2023</b>
+
+          Date:
+          <b>August 2023</b>
         </p>
+
       </div>
 
 
-      <div class="blog-post">
+      <div class="blog-entry">
+
         <a href="blog/pitch-man.html">
           Pitch Enabled Notification Interface System (PENIS)
         </a>
 
-        <p class="metadata">
-          Subject: <b>DIY/Personal</b>
+        <p style="font-size: 14px;">
+          Subject:
+          <b>DIY/Personal</b>
+
           &emsp;
-          HackerNews Rank: <b>X</b>
+
+          HackerNews Rank:
+          <b>X</b>
+
           &emsp;
-          Date: <b>Coming soon</b>
+
+          Date:
+          <b>Coming soon</b>
         </p>
+
       </div>
 
 
-      <div class="blog-post">
+      <div class="blog-entry">
+
         <a href="blog/coming-soon.html">
           DIY Discord bot to HTML calendar - and why I don't use it
         </a>
 
-        <p class="metadata">
-          Subject: <b>Web/Personal</b>
+        <p style="font-size: 14px;">
+          Subject:
+          <b>Web/Personal</b>
+
           &emsp;
-          HackerNews Rank: <b>X</b>
+
+          HackerNews Rank:
+          <b>X</b>
+
           &emsp;
-          Date: <b>Coming soon</b>
+
+          Date:
+          <b>Coming soon</b>
         </p>
+
       </div>
 
 
-      <div class="blog-post">
+      <div class="blog-entry">
+
         <a href="blog/coming-soon.html">
           Album catalog QR prints on a $20 receipt printer
         </a>
 
-        <p class="metadata">
-          Subject: <b>DIY/Personal</b>
+        <p style="font-size: 14px;">
+          Subject:
+          <b>DIY/Personal</b>
+
           &emsp;
-          HackerNews Rank: <b>X</b>
+
+          HackerNews Rank:
+          <b>X</b>
+
           &emsp;
-          Date: <b>Coming soon</b>
+
+          Date:
+          <b>Coming soon</b>
         </p>
+
       </div>
 
     </div>
 
 
-    <!-- CONTACT -->
-    <div class="tab" id="contact">
 
-      <div class="contact-card">
+    <!-- ========================= -->
+    <!-- CONTACT                   -->
+    <!-- ========================= -->
 
-        <h3>CV & email</h3>
+    <div
+      class="tab"
+      id="contact"
+    >
+
+      <div class="contact-box">
+
+        <h3>
+          CV & email
+        </h3>
 
         <p>
           Please find
-          <a target="_blank" href="media/LagoaCV.pdf">my CV</a>
-          here. You can reach me at
-          <i>me(at)carloslagoa.com</i> -
+
+          <a
+            target="_blank"
+            href="media/LagoaCV.pdf"
+          >
+            my CV
+          </a>
+
+          here.
+
+          You can reach me at
+
+          <i>
+            me(at)carloslagoa.com
+          </i>
+
+          -
+
           <a
             href="mailto:me@carloslagoa.com?subject=A message to Carlos"
           >
@@ -504,37 +931,51 @@
         </p>
 
 
-        <h3>Tech</h3>
+        <br>
+
+
+        <h3>
+          Tech
+        </h3>
 
         <p>
           I have a pretty unused
+
           <a
             target="_blank"
             href="https://github.com/kiloamp"
           >
             Github account
           </a>
+
           and this is my
+
           <a
             target="_blank"
             href="https://news.ycombinator.com/user?id=carloslagoa"
           >
             Hacker News profile
           </a>
+
           where I post stuff. I've got a weird view on tech
           sometimes, and I'm never the most savvy in a room -
           however, I'm always happy to grab a coffee and chat.
         </p>
 
 
-        <h3>Aviation</h3>
+        <br>
+
+
+        <h3>
+          Aviation
+        </h3>
 
         <p>
-          As you might've read: I have a long list of cool things
-          that I'm doing/want to do! I'm SE/ME CPL+IR certified,
-          as well as Airbus A320 rated. Additionally I have
-          experience with ground operations. Don't hesitate to
-          reach out if I can be of service.
+          As you might've read: I have a long list of cool
+          things that I'm doing/want to do! I'm SE/ME CPL+IR
+          certified, as well as Airbus A320 rated.
+          Additionally I have experience with ground operations.
+          Don't hesitate to reach out if I can be of service.
         </p>
 
       </div>
@@ -542,8 +983,13 @@
     </div>
 
 
-    <!-- navigation now lives at the bottom -->
-    <nav class="bottom-nav">
+
+    <!-- ========================= -->
+    <!-- BOTTOM NAV                -->
+    <!-- ========================= -->
+
+    <div class="bottom-nav">
+
       <button onclick="openTab('about')">
         About me
       </button>
@@ -555,12 +1001,10 @@
       <button onclick="openTab('contact')">
         CV & contact me
       </button>
-    </nav>
+
+    </div>
 
   </main>
-
-
-  <script src="slideshow.js"></script>
 
 </body>
 </html>
