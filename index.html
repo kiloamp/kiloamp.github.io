@@ -1,1231 +1,231 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>carlos' site</title>
-
-  <link
-    rel="shortcut icon"
-    type="image/x-icon"
-    href="favicon.ico"
-  />
-
-  <link
-    rel="stylesheet"
-    href="slideshow.css"
-  />
-
-
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="slideshow.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
   <script>
-
-    /* --------------------------------
-       TIME SINCE
-    -------------------------------- */
-
     function updateTimeSince() {
-
-      const eventDate =
-        new Date('2024-04-03T00:00:00');
-
-      const currentDate =
-        new Date();
-
-      const diffInMs =
-        currentDate - eventDate;
-
-      const diffInHours =
-        diffInMs / (1000 * 60 * 60);
-
-      document
-        .getElementById("time_since")
-        .textContent =
-        diffInHours.toFixed(3);
+      const eventDate = new Date('2024-04-03T00:00:00');
+      const currentDate = new Date();
+      const diffInMs = currentDate - eventDate;
+      const diffInHours = diffInMs / (1000 * 60 * 60);
+      document.getElementById("time_since").textContent = diffInHours.toFixed(3);
     }
-
-
-
-    /* --------------------------------
-       RANDOM EMOJI
-    -------------------------------- */
 
     function changeEmoji() {
-
-      const values = [
-        '🤠',
-        '✈️',
-        '💻',
-        '🚀'
-      ];
-
-      const randomIndex =
-        Math.floor(
-          Math.random() * values.length
-        );
-
-      document
-        .getElementById("random_emoji")
-        .textContent =
-        values[randomIndex];
+      const values = ['🤠', '✈️', '💻', '🚀'];
+      const randomIndex = Math.floor(Math.random() * values.length);
+      document.getElementById("random_emoji").textContent = values[randomIndex];
     }
 
-
-
-    /* --------------------------------
-       ABOUT / BLOG / CONTACT
-    -------------------------------- */
-
-    function openTab(tabName) {
-
-      const tabs =
-        document.getElementsByClassName("tab");
-
-
-      for (
-        let i = 0;
-        i < tabs.length;
-        i++
-      ) {
-
-        tabs[i].style.display = "none";
-
-      }
-
-
-      document
-        .getElementById(tabName)
-        .style.display = "block";
-
-
-      /*
-        When opening About again,
-        return its horizontal track
-        to the beginning.
-      */
-
-      if (tabName === "about") {
-
-        const track =
-          document.getElementById("about-track");
-
-        if (track) {
-          track.scrollLeft = 0;
-        }
-
-      }
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-
-
-
-    /* --------------------------------
-       SCROLL ENTIRE CARDS LEFT/RIGHT
-    -------------------------------- */
-
-    function scrollAbout(direction) {
-
-      const track =
-        document.getElementById("about-track");
-
-
-      /*
-        Scroll almost one viewport at a time.
-
-        This moves the CARDS themselves,
-        not the slideshow inside each card.
-      */
-
-      const amount =
-        track.clientWidth * 0.9;
-
-
-      track.scrollBy({
-        left: direction * amount,
-        behavior: "smooth"
-      });
-
-    }
-
+    window.addEventListener('DOMContentLoaded', function () {
+      updateTimeSince();
+      changeEmoji();
+    });
   </script>
-
 </head>
-
-
-
-<body
-  onload="
-    updateTimeSince();
-    changeEmoji();
-  "
->
-
-
-  <!-- ================================
-       HEADER
-  ================================= -->
-
-  <header style="text-align: center;">
-
-
-    <span
-      id="random_emoji"
-      style="
-        font-size: 3rem;
-        display: block;
-        margin: 0 auto;
-      "
-    ></span>
-
-
-    <p style="margin-top: 20px;">
-
-      Howdy, Carlos here.
-
-      <br><br>
-
-      This site is a quick intro into the 5
-
-      <a
-        target="_blank"
-        href="https://en.wikipedia.org/wiki/Lustrum"
-      >
-        lūstra
-      </a>
-
-      and
-
-      <span id="time_since"></span>
-
-      hours I've been around.
-
-    </p>
-
-
-  </header>
-
-
-
-  <main style="text-align: left;">
-
-
-    <!-- ================================
-         ABOUT
-         VISIBLE BY DEFAULT
-    ================================= -->
-
-    <div
-      class="tab"
-      id="about"
-    >
-
-
-      <!--
-        ALL CARDS LIVE INSIDE THIS
-        ONE HORIZONTAL TRACK
-      -->
-
-      <div
-        class="about-track"
-        id="about-track"
-      >
-
-
-        <!-- ==========================
-             CARD A
-        =========================== -->
-
-        <div
-          class="slideshow"
-          style="height: 30rem; max-width: 25rem;"
-        >
-
-
-          <div class="slide_A">
-
-
-            <img
-              src="media/palmapic.jpg"
-              alt="uni"
-              class="image"
-            />
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              I was born in Barcelona, but moved
-              to Mallorca when I was around 4.
-
-              The island proves to be more interesting
-              and fun as the years go by...
-
-            </p>
-
-
-          </div>
-
-
-
-          <div class="slide_A">
-
-
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              src="media/tri.webm"
-            ></video>
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              ...we even did an Olympic Triathlon
-              this early summer!
-
-              (kudos Jan, Nero & Simeon 🙌)
-
-              <br><br>
-
-              TODO: Beat them next year
-
-            </p>
-
-
-          </div>
-
-
-
-          <a
-            class="next"
-            onclick="
-              this.innerHTML =
-                this.innerHTML === '→'
-                ? '←'
-                : '→';
-
-              plusSlides(1, 'A');
-
-              return false;
-            "
-          >
-            →
-          </a>
-
-
-        </div>
-
-
-
-        <!-- ==========================
-             CARD B
-        =========================== -->
-
-        <div
-          class="slideshow"
-          style="height: 30rem; max-width: 25rem;"
-        >
-
-
-          <div class="slide_B">
-
-
-            <img
-              src="media/minime.png"
-              alt="uni"
-              class="image"
-            />
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              Since I was little I've been around
-              planes; family & friends are in the
-              bizz and as such it slowly started
-              being a big part of my life...
-
-            </p>
-
-
-          </div>
-
-
-
-          <div class="slide_B">
-
-
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              src="media/edu.webm"
-            ></video>
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              ... and it continues to be so!
-
-              All shapes and sizes.
-
-              Talking about Mallorca getting more
-              interesting, here's an ultralight
-              along its coast.
-
-            </p>
-
-
-          </div>
-
-
-
-          <a
-            class="next"
-            onclick="
-              this.innerHTML =
-                this.innerHTML === '→'
-                ? '←'
-                : '→';
-
-              plusSlides(1, 'B');
-
-              return false;
-            "
-          >
-            →
-          </a>
-
-
-        </div>
-
-
-
-        <!-- ==========================
-             STORY DIVIDER
-        =========================== -->
-
-        <div class="story-divider">
-
-          <p>
-            ... slightly later in life...
-          </p>
-
-        </div>
-
-
-
-        <!-- ==========================
-             CARD C
-        =========================== -->
-
-        <div
-          class="slideshow"
-          style="height: 30rem; max-width: 25rem;"
-        >
-
-
-          <div class="slide_C">
-
-
-            <img
-              src="media/lfscar.png"
-              alt="uni"
-              class="image"
-            />
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              I moved to the UK 🇬🇧, got into tech
-              & engineering - joined my university's
-              Formula Student team and did my
-
-              <a
-                target="_blank"
-                href="fyp.pdf"
-              >
-                final year thesis
-              </a>
-
-              with them...
-
-            </p>
-
-
-          </div>
-
-
-
-          <div class="slide_C">
-
-
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              src="media/uk.webm"
-            ></video>
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              ...not everything was cars,
-              computers (<i>& pubs</i>).
-
-              There was an immense sense of
-              tranquility, cosy cats,
-              self-discoveries & walks with friends.
-
-            </p>
-
-
-          </div>
-
-
-
-          <a
-            class="next"
-            onclick="
-              this.innerHTML =
-                this.innerHTML === '→'
-                ? '←'
-                : '→';
-
-              plusSlides(1, 'C');
-
-              return false;
-            "
-          >
-            →
-          </a>
-
-
-        </div>
-
-
-
-        <!-- ==========================
-             CARD D
-        =========================== -->
-
-        <div
-          class="slideshow"
-          style="height: 30rem; max-width: 25rem;"
-        >
-
-
-          <div class="slide_D">
-
-
-            <img
-              src="media/tractor.png"
-              alt="uni"
-              class="image"
-            />
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              I then moved *back* to Spain 🇪🇸,
-              where I got my Commercial Pilot
-              License.
-
-              It was mid-covid, so a pretty lengthy
-              & trying process...
-
-            </p>
-
-
-          </div>
-
-
-
-          <div class="slide_D">
-
-
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              src="media/soloxc.webm"
-            ></video>
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              <i>Cons:</i>
-
-              Some schools suck, and testing style
-              is done badly (I think).
-
-              <i>Pros:</i>
-
-              Amazing solo journeys and experiences.
-
-              Talk to me if you need opinions!
-
-            </p>
-
-
-          </div>
-
-
-
-          <a
-            class="next"
-            onclick="
-              this.innerHTML =
-                this.innerHTML === '→'
-                ? '←'
-                : '→';
-
-              plusSlides(1, 'D');
-
-              return false;
-            "
-          >
-            →
-          </a>
-
-
-        </div>
-
-
-
-        <!-- ==========================
-             STORY DIVIDER
-        =========================== -->
-
-        <div class="story-divider">
-
-          <p>
-            ... and right now...
-          </p>
-
-        </div>
-
-
-
-        <!-- ==========================
-             CARD E
-        =========================== -->
-
-        <div
-          class="slideshow"
-          style="height: 30rem; max-width: 25rem;"
-        >
-
-
-          <div class="slide_E">
-
-
-            <img
-              src="media/office.png"
-              alt="uni"
-              class="image"
-            />
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              I'm working at
-
-              <a
-                target="_blank"
-                href="https://marpledata.com"
-              >
-                Marple
-              </a>,
-
-              a Belgian 🇧🇪 startup that works
-              with engineers to develop & deploy
-              test data analysis software -
-
-              mostly for cars and planes...
-
-            </p>
-
-
-          </div>
-
-
-
-          <div class="slide_E">
-
-
-            <div
-              class="image_reel"
-              id="image_reel"
-            >
-
-
-              <img
-                src="media/tutu.png"
-                alt="image1"
-                class="image"
-              />
-
-
-              <img
-                src="media/dranks.png"
-                alt="image2"
-                class="image"
-                style="display: none;"
-              />
-
-
-              <img
-                src="media/nerofun.png"
-                alt="image3"
-                class="image"
-                style="display: none;"
-              />
-
-
-            </div>
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              ... the team is unbeliveably fun
-              to be around and my role is mostly
-              aligned to what I'd like to do in
-              a future!
-
-              (Flight Test Engineering).
-
-            </p>
-
-
-          </div>
-
-
-
-          <a
-            class="next"
-            onclick="
-              this.innerHTML =
-                this.innerHTML === '→'
-                ? '←'
-                : '→';
-
-              plusSlides(1, 'E');
-
-              return false;
-            "
-          >
-            →
-          </a>
-
-
-        </div>
-
-
-
-        <!-- ==========================
-             CARD F
-        =========================== -->
-
-        <div
-          class="slideshow"
-          style="height: 30rem; max-width: 25rem;"
-        >
-
-
-          <div class="slide_F">
-
-
-            <img
-              src="media/tractor.png"
-              alt="uni"
-              class="image"
-            />
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              Whilst I still do some ocassional
-              flying, I recently got my Airbus A320
-              type rating and I'm looking for a job
-              in Europe 🇪🇺...
-
-            </p>
-
-
-          </div>
-
-
-
-          <div class="slide_F">
-
-
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              src="media/jet.webm"
-            ></video>
-
-
-            <p
-              style="
-                padding-top: 25px;
-                padding-left: 50px;
-                padding-right: 50px;
-              "
-            >
-
-              ... ^ some of the ocassional flying!
-
-              Night approach into east coast Spain.
-
-              Soon starting my Acrobatic Rating too,
-              perhaps to compete?
-
-            </p>
-
-
-          </div>
-
-
-
-          <a
-            class="next"
-            onclick="
-              this.innerHTML =
-                this.innerHTML === '→'
-                ? '←'
-                : '→';
-
-              plusSlides(1, 'F');
-
-              return false;
-            "
-          >
-            →
-          </a>
-
-
-        </div>
-
-
+<body>
+  <main class="story-strip" aria-label="Carlos' story">
+    <section class="story-card intro-card">
+      <div class="intro-mark" aria-hidden="true">
+        <span id="random_emoji"></span>
       </div>
-
-
-      <!--
-        THESE ARROWS MOVE THE WHOLE
-        ABOUT STORY LEFT / RIGHT.
-      -->
-
-      <div class="about-controls">
-
-        <button
-          onclick="scrollAbout(-1)"
-          aria-label="Previous cards"
-        >
-          ←
-        </button>
-
-
-        <button
-          onclick="scrollAbout(1)"
-          aria-label="Next cards"
-        >
-          →
-        </button>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- ================================
-         BLOG
-    ================================= -->
-
-    <div
-      class="tab"
-      id="blog"
-      style="display: none;"
-    >
-
-
-      <div class="blog-entry">
-
-        <a href="blog/flipreps.html">
-
-          Aircraft navigation log on a $20
-          receipt printer
-
-        </a>
-
-
-        <p style="font-size: 14px;">
-
-          Subject:
-          <b>Tech/Aviation</b>
-
-          &emsp;
-
-          HackerNews Rank:
-          <b>2nd</b>
-
-          &emsp;
-
-          Date:
-          <b>August 2023</b>
-
-        </p>
-
-      </div>
-
-
-
-      <div class="blog-entry">
-
-        <a href="blog/pitch-man.html">
-
-          Pitch Enabled Notification Interface
-          System (PENIS)
-
-        </a>
-
-
-        <p style="font-size: 14px;">
-
-          Subject:
-          <b>DIY/Personal</b>
-
-          &emsp;
-
-          HackerNews Rank:
-          <b>X</b>
-
-          &emsp;
-
-          Date:
-          <b>Coming soon</b>
-
-        </p>
-
-      </div>
-
-
-
-      <div class="blog-entry">
-
-        <a href="blog/coming-soon.html">
-
-          DIY Discord bot to HTML calendar -
-          and why I don't use it
-
-        </a>
-
-
-        <p style="font-size: 14px;">
-
-          Subject:
-          <b>Web/Personal</b>
-
-          &emsp;
-
-          HackerNews Rank:
-          <b>X</b>
-
-          &emsp;
-
-          Date:
-          <b>Coming soon</b>
-
-        </p>
-
-      </div>
-
-
-
-      <div class="blog-entry">
-
-        <a href="blog/coming-soon.html">
-
-          Album catalog QR prints on a $20
-          receipt printer
-
-        </a>
-
-
-        <p style="font-size: 14px;">
-
-          Subject:
-          <b>DIY/Personal</b>
-
-          &emsp;
-
-          HackerNews Rank:
-          <b>X</b>
-
-          &emsp;
-
-          Date:
-          <b>Coming soon</b>
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- ================================
-         CONTACT
-    ================================= -->
-
-    <div
-      class="tab"
-      id="contact"
-      style="display: none;"
-    >
-
-
-      <div class="contact-box">
-
-
-        <h3>
-          CV & email
-        </h3>
-
-
+      <div class="story-copy">
+        <p class="kicker">Carlos Lagoa</p>
+        <h1>Five l&#363;stra and <span id="time_since"></span> hours.</h1>
         <p>
-
-          Please find
-
-          <a
-            target="_blank"
-            href="media/LagoaCV.pdf"
-          >
-            my CV
-          </a>
-
-          here.
-
-          You can reach me at
-
-          <i>
-            me(at)carloslagoa.com
-          </i>
-
-          -
-
-          <a
-            href="mailto:me@carloslagoa.com?subject=A message to Carlos"
-          >
-            press to email.
-          </a>
-
+          Barcelona-born, Mallorca-raised, usually somewhere between aircraft,
+          odd little engineering projects, friends, sea air, and a notebook that
+          gets opened at the wrong times.
         </p>
-
-
-        <br>
-
-
-        <h3>
-          Tech
-        </h3>
-
-
-        <p>
-
-          I have a pretty unsued
-
-          <a
-            target="_blank"
-            href="https://github.com/kiloamp"
-          >
-            Github account
-          </a>
-
-          and this is my
-
-          <a
-            target="_blank"
-            href="https://news.ycombinator.com/user?id=carloslagoa"
-          >
-            Hacker News profile
-          </a>
-
-          where I post stuff.
-
-          I've got a weird view on tech sometimes,
-          and I'm never the most savvy in a room -
-          however, I'm always happy to grab a coffee
-          and chat.
-
-        </p>
-
-
-        <br>
-
-
-        <h3>
-          Aviation
-        </h3>
-
-
-        <p>
-
-          As you might've read: I have a long list
-          of cool things that I'm doing/want to do!
-
-          I'm SE/ME CPL+IR certified, as well as
-          Airbus A320 rated.
-
-          Additionally I have experience with ground
-          operations.
-
-          Don't hesitate to reach out if I can be
-          of service.
-
-        </p>
-
-
       </div>
+    </section>
 
+    <section class="story-card">
+      <figure class="media-frame">
+        <img src="media/palmapic.jpg" alt="Palma de Mallorca from above" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Mallorca</p>
+        <h2>Island gravity.</h2>
+        <p>
+          I was born in Barcelona, then moved to Mallorca when I was around four.
+          The island somehow gets more interesting and more fun every year.
+        </p>
+      </div>
+    </section>
 
-    </div>
+    <section class="story-card">
+      <figure class="media-frame">
+        <video autoplay loop muted playsinline src="media/tri.webm"></video>
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Early summer</p>
+        <h2>Swim, bike, run, laugh.</h2>
+        <p>
+          We even did an Olympic Triathlon. Kudos Jan, Nero, and Simeon. The
+          quiet TODO remains exactly where it belongs: beat them next year.
+        </p>
+      </div>
+    </section>
 
+    <section class="story-card">
+      <figure class="media-frame">
+        <img src="media/minime.png" alt="Carlos as a child near an aircraft" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Aviation</p>
+        <h2>The long pull of airplanes.</h2>
+        <p>
+          Since I was little I have been around planes. Family and friends were
+          in the business, so aviation slowly became part of the background
+          noise of life, then part of the foreground.
+        </p>
+      </div>
+    </section>
 
+    <section class="story-card">
+      <figure class="media-frame">
+        <video autoplay loop muted playsinline src="media/edu.webm"></video>
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Coastline</p>
+        <h2>All shapes and sizes.</h2>
+        <p>
+          It continues to be a big part of my life. Here is an ultralight along
+          the coast of Mallorca, which is exactly the kind of sentence that makes
+          staying on the island sound very reasonable.
+        </p>
+      </div>
+    </section>
 
-    <!-- ================================
-         BOTTOM NAVIGATION
-    ================================= -->
+    <section class="story-card">
+      <figure class="media-frame">
+        <img src="media/lfscar.png" alt="A Formula Student car" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">United Kingdom</p>
+        <h2>Cars, code, and test data.</h2>
+        <p>
+          I moved to the UK, got into tech and engineering, joined my university's
+          Formula Student team, and wrote my <a target="_blank" href="fyp.pdf">final year thesis</a>
+          with them.
+        </p>
+      </div>
+    </section>
 
-    <div class="bottom-nav">
+    <section class="story-card">
+      <figure class="media-frame">
+        <video autoplay loop muted playsinline src="media/uk.webm"></video>
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">In between</p>
+        <h2>Not everything was horsepower.</h2>
+        <p>
+          There were computers, pubs, long walks, cosy houses, quiet stretches,
+          and friends. The UK years were very good at making things click
+          internally.
+        </p>
+      </div>
+    </section>
 
+    <section class="story-card">
+      <figure class="media-frame">
+        <img src="media/tractor.png" alt="A light aircraft on the apron" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Back to Spain</p>
+        <h2>The CPL chapter.</h2>
+        <p>
+          I moved back to Spain and got my Commercial Pilot License. It happened
+          around mid-Covid, which made the process lengthy, strange, and probably
+          more character-building than anyone ordered.
+        </p>
+      </div>
+    </section>
 
-      <button
-        onclick="openTab('about')"
-      >
-        About me
-      </button>
+    <section class="story-card">
+      <figure class="media-frame">
+        <video autoplay loop muted playsinline src="media/soloxc.webm"></video>
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Solo cross-country</p>
+        <h2>The good bit.</h2>
+        <p>
+          Some schools suck, and testing style could be better. But the solo
+          journeys were magic: a little aircraft, a plan, some weather, and
+          enough room in the sky to learn about yourself.
+        </p>
+      </div>
+    </section>
 
+    <section class="story-card">
+      <figure class="media-frame">
+        <img src="media/office.png" alt="A desk setup at the Marple office" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Marple</p>
+        <h2>Engineering for engineers.</h2>
+        <p>
+          I work at <a target="_blank" href="https://marpledata.com">Marple</a>,
+          a Belgian startup building test data analysis software for engineers,
+          mostly around cars and planes.
+        </p>
+      </div>
+    </section>
 
-      <button
-        onclick="openTab('blog')"
-      >
-        A 'blog' of sorts
-      </button>
+    <section class="story-card collage-card">
+      <figure class="media-collage">
+        <img src="media/tutu.png" alt="A Marple team moment" />
+        <img src="media/dranks.png" alt="Friends having drinks" />
+        <img src="media/nerofun.png" alt="Friends having fun together" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">People</p>
+        <h2>Team as weather system.</h2>
+        <p>
+          The people are unbelievably fun to be around, and the work lines up
+          with where I would like to go next: flight test engineering.
+        </p>
+      </div>
+    </section>
 
+    <section class="story-card">
+      <figure class="media-frame">
+        <video autoplay loop muted playsinline src="media/jet.webm"></video>
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Right now</p>
+        <h2>Still flying.</h2>
+        <p>
+          I still do some occasional flying, recently completed my Airbus A320
+          type rating, and keep adding new ways to make the sky feel familiar.
+        </p>
+      </div>
+    </section>
 
-      <button
-        onclick="openTab('contact')"
-      >
-        CV & contact me
-      </button>
-
-
-    </div>
-
-
+    <section class="story-card iberojet-card">
+      <figure class="media-frame wide-photo">
+        <img src="media/iberojet-a320.jpg" alt="Iberojet Airbus A320 EC-LZD" />
+      </figure>
+      <div class="story-copy">
+        <p class="kicker">Iberojet</p>
+        <h2>Flight student.</h2>
+        <p>
+          I&rsquo;m a flight student at Iberojet.
+        </p>
+        <p class="credit">
+          Photo by Anna Zvereva, <a target="_blank" href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>,
+          via <a target="_blank" href="https://commons.wikimedia.org/wiki/File:Iberojet,_EC-LZD,_Airbus_A320-214_(52563280207).jpg">Wikimedia Commons</a>.
+        </p>
+      </div>
+    </section>
   </main>
-
-
-
-  <!--
-    KEEP YOUR EXISTING slideshow.js
-
-    This is still responsible for switching
-    between the two images/videos INSIDE
-    each individual A/B/C/D/E/F card.
-  -->
-
-  <script src="slideshow.js"></script>
-
-
 </body>
-
 </html>
