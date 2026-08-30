@@ -1,47 +1,90 @@
-let slideIndexes = {
-  A: 1,
-  B: 1,
-  C: 1,
-  D: 1,
-  E: 1,
-  F: 1
-};
+window.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".story-strip");
 
-showSlides(slideIndexes.A, "A");
-showSlides(slideIndexes.B, "B");
-showSlides(slideIndexes.C, "C");
-showSlides(slideIndexes.D, "D");
-showSlides(slideIndexes.E, "E");
-showSlides(slideIndexes.F, "F");
-
-function plusSlides(n, X) {
-  slideIndexes[X] += n;
-  showSlides(slideIndexes[X], X);
-}
-
-function currentSlide(n, X) {
-  slideIndexes[X] = n;
-  showSlides(slideIndexes[X], X);
-}
-
-function showSlides(n, X) {
-  let slides = document.getElementsByClassName("slide_" + X);
-  if (n > slides.length) {
-    slideIndexes[X] = 1;
+  if (!track) {
+    return;
   }
-  if (n < 1) {
-    slideIndexes[X] = slides.length;
-  }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndexes[X] - 1].style.display = "block";
-}
 
-setInterval(function() {
-  const image_reel = document.getElementById('image_reel');
-  const current = image_reel.children[0];  // First image (current)
-  image_reel.appendChild(current);         // Move current to the end
-  current.style.display = 'none';         // Hide current
-  image_reel.children[0].style.display = 'block';  // Show next
-}, 1500);
+  let isDragging = false;
+  let moved = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+
+  track.addEventListener("pointerdown", function (event) {
+    if (event.pointerType !== "mouse") {
+      return;
+    }
+
+    isDragging = true;
+    moved = false;
+    startX = event.clientX;
+    startScrollLeft = track.scrollLeft;
+    track.classList.add("is-dragging");
+    track.setPointerCapture(event.pointerId);
+  });
+
+  track.addEventListener("pointermove", function (event) {
+    if (!isDragging) {
+      return;
+    }
+
+    const deltaX = event.clientX - startX;
+
+    if (Math.abs(deltaX) > 3) {
+      moved = true;
+    }
+
+    track.scrollLeft = startScrollLeft - deltaX;
+
+    if (moved) {
+      event.preventDefault();
+    }
+  });
+
+  function stopDragging(event) {
+    if (!isDragging) {
+      return;
+    }
+
+    isDragging = false;
+    track.classList.remove("is-dragging");
+
+    if (track.hasPointerCapture(event.pointerId)) {
+      track.releasePointerCapture(event.pointerId);
+    }
+  }
+
+  track.addEventListener("pointerup", stopDragging);
+  track.addEventListener("pointercancel", stopDragging);
+  track.addEventListener("pointerleave", stopDragging);
+  track.addEventListener("dragstart", function (event) {
+    event.preventDefault();
+  });
+
+  track.addEventListener(
+    "click",
+    function (event) {
+      if (!moved) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      moved = false;
+    },
+    true
+  );
+
+  track.addEventListener(
+    "wheel",
+    function (event) {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+        return;
+      }
+
+      track.scrollLeft += event.deltaY;
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+});

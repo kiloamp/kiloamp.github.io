@@ -1,15 +1,14 @@
 :root {
   color-scheme: light;
   --ink: #171717;
-  --muted: #5a5a5a;
-  --paper: #fffaf1;
+  --paper: #fff4dc;
   --panel: #ffffff;
   --mint: #d8f0e4;
   --sky: #cce7f7;
   --sun: #ffd36e;
   --coral: #ef806f;
-  --violet: #8b6fe8;
   --shadow: #93bab8;
+  --circle-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='12' fill='%23ffffff' fill-opacity='0.78' stroke='%23171717' stroke-width='2'/%3E%3C/svg%3E") 17 17, auto;
 }
 
 * {
@@ -23,10 +22,9 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background:
-    linear-gradient(90deg, rgba(255, 211, 110, 0.2), rgba(204, 231, 247, 0.35)),
-    var(--paper);
+  background: var(--paper);
   color: var(--ink);
+  cursor: var(--circle-cursor);
   font-family: "B612 Mono", monospace;
   font-size: 16px;
   font-weight: 400;
@@ -36,6 +34,7 @@ body {
 
 a {
   color: #5f3bc7;
+  cursor: var(--circle-cursor);
   text-decoration-thickness: 0.12em;
   text-underline-offset: 0.18em;
 }
@@ -45,19 +44,37 @@ video {
   display: block;
   width: 100%;
   height: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .story-strip {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: clamp(1rem, 3vw, 2rem);
   width: 100vw;
   height: 100svh;
   padding: clamp(1rem, 3vw, 2rem);
   overflow-x: auto;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  cursor: var(--circle-cursor);
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
   scroll-snap-type: x proximity;
   scroll-padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.story-strip::-webkit-scrollbar,
+.story-copy::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.story-strip.is-dragging {
+  scroll-snap-type: none;
+  user-select: none;
 }
 
 .story-strip::after {
@@ -80,23 +97,10 @@ video {
   scroll-snap-align: start;
 }
 
-.story-card:nth-child(3n) {
-  box-shadow: 0.55rem 0.55rem 0 var(--sun);
-}
-
-.story-card:nth-child(4n) {
-  box-shadow: 0.55rem 0.55rem 0 var(--coral);
-}
-
-.story-card:nth-child(5n) {
-  box-shadow: 0.55rem 0.55rem 0 var(--sky);
-}
-
 .intro-card {
   justify-content: space-between;
   flex-basis: min(82vw, 31rem);
-  background:
-    linear-gradient(135deg, rgba(216, 240, 228, 0.95), rgba(255, 255, 255, 0.95) 52%, rgba(255, 211, 110, 0.52));
+  background: var(--panel);
 }
 
 .intro-mark {
@@ -127,8 +131,8 @@ video {
   object-fit: cover;
 }
 
-.wide-photo img {
-  object-position: 48% center;
+.right-crop img {
+  object-position: right center;
 }
 
 .media-collage {
@@ -157,6 +161,8 @@ video {
   min-height: 0;
   padding: clamp(1.1rem, 3vw, 1.7rem);
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .kicker {
@@ -209,17 +215,9 @@ p {
   text-wrap: pretty;
 }
 
-.credit {
-  color: var(--muted);
-  font-size: 0.7rem;
-  line-height: 1.4;
-}
-
 .iberojet-card {
   flex-basis: min(86vw, 34rem);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(216, 240, 228, 0.95));
-  box-shadow: 0.55rem 0.55rem 0 var(--violet);
+  background: var(--panel);
 }
 
 .iberojet-card h2 {
@@ -257,22 +255,6 @@ p {
     min-width: 0;
     height: calc(100svh - 1.7rem);
     box-shadow: 0.35rem 0.35rem 0 var(--shadow);
-  }
-
-  .story-card:nth-child(3n) {
-    box-shadow: 0.35rem 0.35rem 0 var(--sun);
-  }
-
-  .story-card:nth-child(4n) {
-    box-shadow: 0.35rem 0.35rem 0 var(--coral);
-  }
-
-  .story-card:nth-child(5n) {
-    box-shadow: 0.35rem 0.35rem 0 var(--sky);
-  }
-
-  .iberojet-card {
-    box-shadow: 0.35rem 0.35rem 0 var(--violet);
   }
 
   .media-frame,
