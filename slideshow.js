@@ -75,16 +75,4 @@ window.addEventListener("DOMContentLoaded", function () {
     true
   );
 
-  track.addEventListener(
-    "wheel",
-    function (event) {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
-        return;
-      }
-
-      track.scrollLeft += event.deltaY;
-      event.preventDefault();
-    },
-    { passive: false }
-  );
 });

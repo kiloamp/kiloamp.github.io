@@ -8,6 +8,8 @@
   --sun: #ffd36e;
   --coral: #ef806f;
   --shadow: #93bab8;
+  --card-width: min(82vw, 28rem);
+  --card-height: min(48rem, calc(100svh - clamp(2rem, 6vw, 4rem)));
   --circle-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='12' fill='%23ffffff' fill-opacity='0.78' stroke='%23171717' stroke-width='2'/%3E%3C/svg%3E") 17 17, auto;
 }
 
@@ -61,8 +63,7 @@ video {
   cursor: var(--circle-cursor);
   overscroll-behavior-x: contain;
   scrollbar-width: none;
-  scroll-snap-type: x proximity;
-  scroll-padding-inline: clamp(1rem, 3vw, 2rem);
+  -webkit-overflow-scrolling: touch;
 }
 
 .story-strip::-webkit-scrollbar,
@@ -73,7 +74,6 @@ video {
 }
 
 .story-strip.is-dragging {
-  scroll-snap-type: none;
   user-select: none;
 }
 
@@ -85,21 +85,19 @@ video {
 .story-card {
   position: relative;
   display: flex;
-  flex: 0 0 min(78vw, 27rem);
+  flex: 0 0 var(--card-width);
   flex-direction: column;
-  min-width: 18rem;
-  height: calc(100svh - clamp(2rem, 6vw, 4rem));
-  max-height: 48rem;
+  width: var(--card-width);
+  min-width: var(--card-width);
+  height: var(--card-height);
   overflow: hidden;
   border: 0.15rem solid var(--ink);
   background: var(--panel);
   box-shadow: 0.55rem 0.55rem 0 var(--shadow);
-  scroll-snap-align: start;
 }
 
 .intro-card {
   justify-content: space-between;
-  flex-basis: min(82vw, 31rem);
   background: var(--panel);
 }
 
@@ -216,7 +214,6 @@ p {
 }
 
 .iberojet-card {
-  flex-basis: min(86vw, 34rem);
   background: var(--panel);
 }
 
@@ -225,17 +222,8 @@ p {
 }
 
 @media (min-width: 760px) {
-  .story-card {
-    flex-basis: 27rem;
-  }
-
-  .intro-card {
-    flex-basis: 31rem;
-  }
-
-  .collage-card,
-  .iberojet-card {
-    flex-basis: 34rem;
+  :root {
+    --card-width: 28rem;
   }
 }
 
@@ -247,13 +235,9 @@ p {
   .story-strip {
     gap: 0.9rem;
     padding: 0.85rem;
-    scroll-padding-inline: 0.85rem;
   }
 
   .story-card {
-    flex-basis: 86vw;
-    min-width: 0;
-    height: calc(100svh - 1.7rem);
     box-shadow: 0.35rem 0.35rem 0 var(--shadow);
   }
 
