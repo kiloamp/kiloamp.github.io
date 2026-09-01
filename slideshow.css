@@ -132,6 +132,10 @@ video {
   object-position: right center;
 }
 
+.cockpit-crop img {
+  object-position: 50% center;
+}
+
 .story-copy {
   display: flex;
   flex: 1;
