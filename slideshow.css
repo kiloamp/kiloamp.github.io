@@ -91,7 +91,6 @@ video {
   min-width: var(--card-width);
   height: var(--card-height);
   overflow: hidden;
-  border: 0.15rem solid var(--ink);
   background: var(--panel);
   box-shadow: 0.55rem 0.55rem 0 var(--shadow);
 }
@@ -106,7 +105,6 @@ video {
   flex: 1;
   min-height: 12rem;
   place-items: center;
-  border-bottom: 0.15rem solid var(--ink);
   background: rgba(255, 255, 255, 0.45);
 }
 
@@ -120,7 +118,6 @@ video {
   flex: 0 0 52%;
   min-height: 14rem;
   margin: 0;
-  border-bottom: 0.15rem solid var(--ink);
   background: var(--mint);
 }
 
@@ -138,7 +135,7 @@ video {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0.15rem;
-  background: var(--ink);
+  background: var(--panel);
 }
 
 .media-collage img {

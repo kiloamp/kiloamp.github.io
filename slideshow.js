@@ -61,6 +61,49 @@ window.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
   });
 
+  const lazyVideos = Array.from(document.querySelectorAll(".lazy-video"));
+
+  function loadVideo(video) {
+    if (video.src || !video.dataset.src) {
+      return;
+    }
+
+    video.src = video.dataset.src;
+    video.load();
+  }
+
+  function playVideo(video) {
+    loadVideo(video);
+    video.play().catch(function () {});
+  }
+
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+            playVideo(video);
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        root: track,
+        rootMargin: "0px 640px",
+        threshold: 0.05
+      }
+    );
+
+    lazyVideos.forEach(function (video) {
+      videoObserver.observe(video);
+    });
+  } else {
+    lazyVideos.forEach(playVideo);
+  }
+
   track.addEventListener(
     "click",
     function (event) {

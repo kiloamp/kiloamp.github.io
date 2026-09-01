@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>carlos' site</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="slideshow.css?v=20260830c" />
+  <link rel="stylesheet" href="slideshow.css?v=20260901" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <img src="media/palmapic.jpg" alt="Palma de Mallorca from above" />
+        <img src="media/palmapic.webp" alt="Palma de Mallorca from above" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">Mallorca</p>
@@ -63,7 +63,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <video autoplay loop muted playsinline src="media/tri.webm"></video>
+        <video class="lazy-video" loop muted playsinline preload="none" data-src="media/tri-optimized.webm"></video>
       </figure>
       <div class="story-copy">
         <p class="kicker">Early summer</p>
@@ -77,7 +77,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <img src="media/minime.png" alt="Carlos as a child near an aircraft" />
+        <img src="media/minime.webp" alt="Carlos as a child near an aircraft" loading="lazy" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">Aviation</p>
@@ -92,7 +92,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <video autoplay loop muted playsinline src="media/edu.webm"></video>
+        <video class="lazy-video" loop muted playsinline preload="none" data-src="media/edu-optimized.webm"></video>
       </figure>
       <div class="story-copy">
         <p class="kicker">Coastline</p>
@@ -107,7 +107,7 @@
 
     <section class="story-card">
       <figure class="media-frame right-crop">
-        <img src="media/lfscar.png" alt="A Formula Student car" />
+        <img src="media/lfscar.webp" alt="A Formula Student car" loading="lazy" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">United Kingdom</p>
@@ -122,7 +122,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <video autoplay loop muted playsinline src="media/uk.webm"></video>
+        <video class="lazy-video" loop muted playsinline preload="none" data-src="media/uk-optimized.webm"></video>
       </figure>
       <div class="story-copy">
         <p class="kicker">In between</p>
@@ -137,7 +137,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <img src="media/tractor.png" alt="A light aircraft on the apron" />
+        <img src="media/tractor.webp" alt="A light aircraft on the apron" loading="lazy" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">Back to Spain</p>
@@ -152,7 +152,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <video autoplay loop muted playsinline src="media/soloxc.webm"></video>
+        <video class="lazy-video" loop muted playsinline preload="none" data-src="media/soloxc-optimized.webm"></video>
       </figure>
       <div class="story-copy">
         <p class="kicker">Solo cross-country</p>
@@ -167,7 +167,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <img src="media/office.png" alt="A desk setup at the Marple office" />
+        <img src="media/office.webp" alt="A desk setup at the Marple office" loading="lazy" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">Marple</p>
@@ -182,9 +182,9 @@
 
     <section class="story-card collage-card">
       <figure class="media-collage">
-        <img src="media/tutu.png" alt="A Marple team moment" />
-        <img src="media/dranks.png" alt="Friends having drinks" />
-        <img src="media/nerofun.png" alt="Friends having fun together" />
+        <img src="media/tutu.webp" alt="A Marple team moment" loading="lazy" decoding="async" />
+        <img src="media/dranks.webp" alt="Friends having drinks" loading="lazy" decoding="async" />
+        <img src="media/nerofun.webp" alt="Friends having fun together" loading="lazy" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">People</p>
@@ -198,7 +198,7 @@
 
     <section class="story-card">
       <figure class="media-frame">
-        <video autoplay loop muted playsinline src="media/jet.webm"></video>
+        <video class="lazy-video" loop muted playsinline preload="none" data-src="media/jet-optimized.webm"></video>
       </figure>
       <div class="story-copy">
         <p class="kicker">Right now</p>
@@ -212,7 +212,7 @@
 
     <section class="story-card iberojet-card">
       <figure class="media-frame right-crop">
-        <img src="media/iberojet-a320.jpg" alt="Iberojet Airbus A320 EC-LZD" />
+        <img src="media/iberojet-a320.webp" alt="Iberojet Airbus A320 EC-LZD" loading="lazy" decoding="async" />
       </figure>
       <div class="story-copy">
         <p class="kicker">Iberojet</p>
@@ -223,6 +223,6 @@
       </div>
     </section>
   </main>
-  <script src="slideshow.js?v=20260830c"></script>
+  <script src="slideshow.js?v=20260901"></script>
 </body>
 </html>
