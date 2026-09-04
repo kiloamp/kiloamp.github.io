@@ -27,7 +27,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   cursor: var(--circle-cursor);
-  font-family: "B612 Mono", monospace;
+  font-family: "Ubuntu Mono", monospace;
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
@@ -96,30 +96,26 @@ video {
 
 .story-card {
   background: var(--panel);
+  border: 0.15rem solid var(--ink);
   box-shadow: 0.55rem 0.55rem 0 var(--shadow);
 }
 
 .intro-panel {
-  justify-content: space-between;
-}
-
-.intro-mark {
-  display: grid;
-  flex: 0 0 24%;
-  min-height: 4.5rem;
-  place-items: center;
-  background: rgba(255, 255, 255, 0.45);
+  justify-content: center;
 }
 
 #random_emoji {
+  display: block;
+  margin-bottom: 0.5rem;
   font-size: clamp(1.4rem, 4.8vw, 2.2rem);
   line-height: 1;
 }
 
 .media-frame {
-  flex: 0 0 52%;
+  flex: 0 0 64%;
   min-height: 14rem;
   margin: 0;
+  border-bottom: 0.15rem solid var(--ink);
   background: var(--mint);
 }
 
@@ -147,6 +143,10 @@ video {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.intro-copy {
+  flex: 0 1 auto;
 }
 
 .kicker {
@@ -233,10 +233,9 @@ p {
     box-shadow: 0.35rem 0.35rem 0 var(--shadow);
   }
 
-  .media-frame,
-  .intro-mark {
-    flex-basis: 28%;
-    min-height: 4rem;
+  .media-frame {
+    flex-basis: 58%;
+    min-height: 13rem;
   }
 
   .story-copy {
