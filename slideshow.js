@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   let isDragging = false;
   let moved = false;
+  let suppressClick = false;
   let startX = 0;
   let startScrollLeft = 0;
 
@@ -51,6 +52,14 @@ window.addEventListener("DOMContentLoaded", function () {
 
     if (track.hasPointerCapture(event.pointerId)) {
       track.releasePointerCapture(event.pointerId);
+    }
+
+    if (moved) {
+      suppressClick = true;
+      window.setTimeout(function () {
+        suppressClick = false;
+        moved = false;
+      }, 120);
     }
   }
 
@@ -107,12 +116,13 @@ window.addEventListener("DOMContentLoaded", function () {
   track.addEventListener(
     "click",
     function (event) {
-      if (!moved) {
+      if (!suppressClick) {
         return;
       }
 
       event.preventDefault();
       event.stopPropagation();
+      suppressClick = false;
       moved = false;
     },
     true

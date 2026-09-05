@@ -36,9 +36,15 @@ body {
 
 a {
   color: #5f3bc7;
-  cursor: var(--circle-cursor);
+  cursor: pointer;
   text-decoration-thickness: 0.12em;
   text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus-visible {
+  color: #3b1a9e;
+  text-decoration-thickness: 0.18em;
 }
 
 img,
@@ -112,7 +118,7 @@ video {
 }
 
 .media-frame {
-  flex: 0 0 64%;
+  flex: 0 0 50%;
   min-height: 14rem;
   margin: 0;
   border-bottom: 0.15rem solid var(--ink);
@@ -205,14 +211,6 @@ p {
   text-wrap: pretty;
 }
 
-.iberojet-card {
-  background: var(--panel);
-}
-
-.iberojet-card h2 {
-  font-size: clamp(2.2rem, 6vw, 4.6rem);
-}
-
 @media (min-width: 760px) {
   :root {
     --card-width: 28rem;
@@ -234,7 +232,7 @@ p {
   }
 
   .media-frame {
-    flex-basis: 58%;
+    flex-basis: 50%;
     min-height: 13rem;
   }
 
